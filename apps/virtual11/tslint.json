@@ -1,0 +1,20 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "wvsPlayWinWorkspace",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "wvs-play-win-workspace",
+      "kebab-case"
+    ]
+  },
+  "linterOptions": {
+    "exclude": ["!**/*"]
+  }
+}
