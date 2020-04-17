@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Message } from '@wvs-play-win-workspace/api-interfaces';
 
 @Component({
   selector: 'wvs-play-win-workspace-root',
@@ -8,6 +7,6 @@ import { Message } from '@wvs-play-win-workspace/api-interfaces';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
+  hello$ = this.http.get<any>('/api/game');
   constructor(private http: HttpClient) {}
 }

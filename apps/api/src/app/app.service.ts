@@ -1,9 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Message } from '@wvs-play-win-workspace/api-interfaces';
+import { SpecialityCodeMaster } from '@wvs-play-win-workspace/api-interfaces';
 
 @Injectable()
-export class AppService {
-  getData(): Message {
-    return { message: 'Welcome to api!' };
-  }
+export abstract class AppService {
+  abstract getSpecialityMaster(): Promise<Array<SpecialityCodeMaster>>
 }

@@ -25,11 +25,11 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
+    "entity-maker": "npx typeorm-model-generator -h localhost -d play_cricket_win -p 3306 -u root -x root -e mysql --noConfig --relationIds  -o=./libs/api-interfaces/src/lib/entity --index  --defaultExport --generateConstructor --skipSchema"
   },
   "private": true,
   "dependencies": {
-    "@nrwl/angular": "9.2.1",
     "@angular/animations": "9.1.0",
     "@angular/common": "9.1.0",
     "@angular/compiler": "9.1.0",
@@ -38,13 +38,25 @@
     "@angular/platform-browser": "9.1.0",
     "@angular/platform-browser-dynamic": "9.1.0",
     "@angular/router": "9.1.0",
-    "core-js": "^2.5.4",
-    "rxjs": "~6.5.4",
-    "zone.js": "^0.10.2",
+    "@cryptography/sha512": "^0.2.0",
     "@nestjs/common": "^6.8.3",
     "@nestjs/core": "^6.8.3",
     "@nestjs/platform-express": "^6.8.3",
-    "reflect-metadata": "^0.1.13"
+    "@nestjs/swagger": "^4.5.1",
+    "@nestjs/typeorm": "^7.0.0",
+    "@nrwl/angular": "9.2.1",
+    "bcrypt": "^4.0.1",
+    "cache-manager": "^3.2.1",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.11.1",
+    "core-js": "^2.5.4",
+    "fastify-swagger": "^2.5.1",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "~6.5.4",
+    "swagger-ui-express": "^4.1.4",
+    "typeorm": "^0.2.24",
+    "zone.js": "^0.10.2"
   },
   "devDependencies": {
     "@angular/cli": "9.1.0",
