@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {CaptchaSetting} from '../../../../modals/captcha.model';
+import { CaptchaSettingModel } from '@wvs-play-win-workspace/shared/types';
 
 
 @Injectable()
 export class CaptchaService {
     private readonly possibleCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     private _settings: any = {};
-    private readonly defaults: CaptchaSetting = new CaptchaSetting();
+    private readonly defaults: CaptchaSettingModel = new CaptchaSettingModel();
 
     constructor() {
         this.defaults = {

@@ -1,4 +1,9 @@
-export class CaptchaSetting {
+/*
+ * @Author Himanshu Maheshwari
+ * @email animatorhimanshu.ksj@gmail.com
+ */
+
+export class CaptchaSettingModel {
     text: string;
     randomText: boolean;
     randomColours: boolean;

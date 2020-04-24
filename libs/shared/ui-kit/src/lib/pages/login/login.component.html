@@ -1,140 +1,54 @@
-<div class="login">
-    <canvas id="game" style="display: none;"></canvas>
-    <!--<div class="">-->
-    <div class="login-bg"></div>
-    <div class="login-intro">
-        <div class="logo animated fadeInLeft">
-            <img class="" src="assets/images/logos/car_white.png">
-        </div>
-        <div class="title fs-48 fw-500 accent-text animated fadeInLeft"> Welcome to TimePay Chalo Parking!</div>
-        <!--<div class="description fs-22 white-text animated fadeInLeft"> Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Vivamus ullamcorper nisl erat, vel convallis elit fermentum pellentesque. Sed
-            mollis velit facilisis facilisis viverra.
-        </div>-->
-    </div>
-    <div class="login-form-wrapper animated slideInRight">
-        <div class="login-form">
-            <div class="title fs-22 text-uppercase">Login To Your Account</div>
-            <form class="" name="loginForm" #loginDataForm="ngForm" [formGroup]="loginForm"
-                  (submit)="loginUser(loginForm)">
-                <mat-form-field appearance="outline" class="input-full-width">
-                    <mat-label>User Name<sup
-                            class="{{appConstant.astrikColor}}">*</sup></mat-label>
-                    <input matInput placeholder="User Name" [formControlName]="'userName'" autocomplete="off">
-                    <mat-icon matSuffix>person_outline</mat-icon>
-                    <mat-error
-                            *ngIf="invalidForm || loginForm.controls['userName'].touched && !loginForm.controls['userName'].valid"
-                            class="error-msg">
-                        <mat-error *ngIf="loginForm.controls['userName'].hasError('required') ">
-                            {{messages.commonReqMsg}}
-                        </mat-error>
-                        <mat-error *ngIf="loginForm.controls['userName'].hasError('pattern') ">
-                            {{messages.userNamePattMsg}}
-                        </mat-error>
-                        <mat-error
-                                *ngIf="!loginForm.controls['userName'].hasError('pattern') && loginForm.controls['userName'].hasError('maxlength') ">
-                            {{messages.nameMaxMsg}}
-                        </mat-error>
-                        <mat-error
-                                *ngIf="!loginForm.controls['userName'].hasError('pattern') && loginForm.controls['userName'].hasError('minlength') ">
-                            {{messages.userNameMinMsg}}
-                        </mat-error>
-                    </mat-error>
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="input-full-width">
-                    <mat-label>Password<sup class="{{appConstant.astrikColor}}">*</sup></mat-label>
-                    <input [type]="'password'" matInput placeholder="Password" autocomplete="off"
-                           [formControlName]="'password'">
-                    <mat-icon matSuffix>lock</mat-icon>
-                    <mat-error
-                            *ngIf="invalidForm || loginForm.controls['password'].touched && !loginForm.controls['password'].valid"
-                            class="error-msg">
-                        <mat-error *ngIf="loginForm.controls['password'].hasError('required') ">
-                            {{messages.commonReqMsg}}
-                        </mat-error>
-                        <mat-error
-                                *ngIf="!loginForm.controls['password'].hasError('pattern') && loginForm.controls['password'].hasError('maxlength') ">
-                            {{messages.passMaxMsg}}
-                        </mat-error>
-                    </mat-error>
-                </mat-form-field>
-                <div class="col s12 m6 l3 text-center" id="captchaImage">
-                    <img #captchaImages width="150px" src="">
-                    <span class="example-fill-remaining-space"></span>
-                    <button class="primary" mat-mini-fab type="button" matTooltip="Reload Captcha"
-                            [matTooltipPosition]="env.tooltipPosition" (click)="getCaptchaCode()">
-                        <mat-icon aria-label="Example icon-button with a add icon" class="fs-16">replay</mat-icon>
-                    </button>
-                </div>
-                <mat-form-field appearance="outline" class="input-full-width">
-                    <mat-label>Captcha<sup
-                            class="{{appConstant.astrikColor}}">*</sup></mat-label>
-                    <input matInput placeholder="Captcha" [formControlName]="'confirmCaptcha'" autocomplete="off">
-                    <mat-error
-                            *ngIf="invalidForm || loginForm.controls['confirmCaptcha'].touched && !loginForm.controls['confirmCaptcha'].valid"
-                            class="error-msg">
-                        <mat-error *ngIf="loginForm.controls['confirmCaptcha'].hasError('required') ">
-                            {{messages.captchaReqMsg}}
-                        </mat-error>
-                        <mat-error *ngIf="loginForm.controls['confirmCaptcha'].hasError('pattern') ">
-                            {{messages.catchaPattMsg}}
-                        </mat-error>
-                        <mat-error
-                                *ngIf="!loginForm.controls['confirmCaptcha'].hasError('pattern') && loginForm.controls['confirmCaptcha'].hasError('maxlength')">
-                            {{messages.captchaMaxMsg}}
-                        </mat-error>
-                        <mat-error
-                                *ngIf="!loginForm.controls['confirmCaptcha'].hasError('pattern') && loginForm.controls['confirmCaptcha'].hasError('minlength')">
-                            {{messages.captchaMinMsg}}
-                        </mat-error>
-                        <mat-error
-                                *ngIf="loginForm.controls['confirmCaptcha'].hasError('MatchCaptcha')">
-                            {{messages.invalidCaptchaMsg}}
-                        </mat-error>
-                    </mat-error>
-                </mat-form-field>
-                <!--<div class="remember-forgot-password">
-                    <mat-checkbox class="m-b-sm fs-14" [color]="'primary'">Remember Me</mat-checkbox>
-                    <a href="javascript:void(0)" class="forgot-password fs-14 fw-500 primary-text m-b-sm"
-                       (click)="login = false"> Forgot
-                        Password? </a>
-                </div>-->
-                <span class="float-left input-full-width p-v-md">
-                    <button type="submit" mat-raised-button
-                            class="fs-18 dark input-full-width white-text text-uppercase m-b-xs m-t-xs p-v-xxs">Login
-                </button>
-                </span>
+<!--
+  ~ @Author Himanshu Maheshwari
+  ~ @email animatorhimanshu.ksj@gmail.com
+  -->
 
-                <!--button-->
-            </form>
-        </div>
+<div class="login">
+  <canvas id="game" style="display: none;"></canvas>
+  <!--<div class="">-->
+  <div class="login-bg"></div>
+  <div class="login-intro">
+    <div class="logo animated fadeInLeft">
+      <!--      <img class="" src="assets/images/logos/car_white.png">-->
     </div>
-    <!--<div class="login-form-wrapper animated slideInRight" *ngIf="!login">
-        <div class="login-form">
-            <div class="title fs-22 text-uppercase">Recover Your Password</div>
-            <form class="" name="loginForm" novalidate="">
-                <mat-form-field appearance="outline" class="input-full-width">
-                    <mat-label>User Name</mat-label>
-                    <input matInput placeholder="User Name">
-                    <mat-icon matSuffix>mail_outline</mat-icon>
-                </mat-form-field>
-                &lt;!&ndash; <mat-form-field appearance="outline" class="input-full-width">
-                     <mat-label>Password</mat-label>
-                     <input matInput placeholder="Password">
-                     <mat-icon matSuffix>lock</mat-icon>
-                 </mat-form-field>&ndash;&gt;
-                <div class="remember-forgot-password">
-                    &lt;!&ndash;<mat-checkbox class="m-b-sm fs-14" [color]="'primary'">Remember Me</mat-checkbox>&ndash;&gt;
-                    <a href="javascript:void(0)" class="forgot-password fs-14 fw-500 primary-text m-b-sm"
-                       (click)="login = true; this.getCaptchaCode();">Go back to login</a>
-                </div>
-                <button type="submit" mat-raised-button
-                        class="fs-18 dark input-full-width white-text text-uppercase m-b-xs m-t-xs p-v-xxs">Get Reset
-                    Link
-                </button>
-                &lt;!&ndash;button&ndash;&gt;
-            </form>
+    <div class="title fs-48 fw-500 accent-text animated fadeInLeft"> Welcome to TimePay Chalo Parking!</div>
+  </div>
+  <div class="login-form-wrapper animated slideInRight">
+    <div *ngIf="entity" class="login-form">
+      <div class="title fs-22 text-uppercase">Login To Your Account</div>
+      <form (submit)="login()" [formGroup]="entity.loginForm" class="" name="loginForm">
+        <mat-form-field appearance="outline" class="input-full-width">
+          <mat-label>User Name<sup
+          >*</sup></mat-label>
+          <input [formControlName]="'userName'" autocomplete="off" matInput placeholder="User Name">
+          <mat-icon matSuffix>person_outline</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="input-full-width">
+          <mat-label>Password<sup>*</sup></mat-label>
+          <input [formControlName]="'password'" [type]="'password'" autocomplete="off" matInput placeholder="Password">
+          <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
+        <div class="col s12 m6 l3 text-center" id="captchaImage" *ngIf="entity.isCaptchaRequired">
+          <img [src]="entity.captchaImage" width="150px"/>
+          <span class="example-fill-remaining-space"></span>
+          <button class="primary" mat-mini-fab matTooltip="Reload Captcha" type="button" (click)="reloadCaptcha()">
+            <mat-icon aria-label="Example icon-button with a add icon" class="fs-16">replay</mat-icon>
+          </button>
         </div>
-    </div>-->
-    <!--</div>-->
+        <mat-form-field appearance="outline" class="input-full-width" *ngIf="entity.isCaptchaRequired">
+          <mat-label>Captcha<sup>*</sup></mat-label>
+          <input [formControlName]="'captcha'" autocomplete="off" matInput placeholder="Captcha">
+        </mat-form-field>
+        <div class="remember-forgot-password" *ngIf="entity.isForgotPassword || entity.isRememberMe">
+          <mat-checkbox [color]="'primary'" class="m-b-sm fs-14" *ngIf="entity.isRememberMe">Remember Me</mat-checkbox>
+          <a class="forgot-password fs-14 fw-500 primary-text m-b-sm" href="javascript:void(0)" *ngIf="entity.isForgotPassword">Forgot Password?</a>
+        </div>
+        <div class="input-full-width p-v-md">
+          <button class="fs-18 dark input-full-width white-text text-uppercase m-b-xs m-t-xs p-v-xxs" mat-raised-button
+                  type="submit">Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

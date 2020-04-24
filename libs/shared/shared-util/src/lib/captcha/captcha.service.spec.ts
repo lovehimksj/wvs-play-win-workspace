@@ -1,7 +1,12 @@
+/*
+ * @Author Himanshu Maheshwari
+ * @email animatorhimanshu.ksj@gmail.com
+ */
+
 import { TestBed, inject } from '@angular/core/testing';
 import {HttpClientModule} from '@angular/common/http';
 import {CaptchaService} from './captcha.service';
-describe('CaptchaImplService', () => {
+describe('CaptchaService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
         imports: [HttpClientModule],

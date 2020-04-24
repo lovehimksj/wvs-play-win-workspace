@@ -24,8 +24,8 @@ async function bootstrap() {
     .setTermsOfService('Terms')
     .setBasePath('/api')
     .build();
-  const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('api', app, document);
+  const document = SwaggerModule.createDocument(app, options, {deepScanRoutes: true});
+  SwaggerModule.setup('api', app, document, {explorer:true, swaggerUrl:'http://localhost:3333'});
   const port = process.env.port || 3333;
   await app.listen(port, () => {
     console.log('Listening at http://localhost:' + port + '/' + globalPrefix);
