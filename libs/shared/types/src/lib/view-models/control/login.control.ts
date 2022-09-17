@@ -3,12 +3,12 @@
  * @email animatorhimanshu.ksj@gmail.com
  */
 
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { InputFieldValidation } from '../constant/input-field-validation.contant';
 
 export class LoginControl {
   captchaCode = '';
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
   isEmailRequired = false;
   isPasswordRequired = false;
   isCaptchaRequired = false;
@@ -17,14 +17,14 @@ export class LoginControl {
   captchaImage = '';
   isCaptchaLoaded = false;
 
-  constructor (private fb: FormBuilder) {
+  constructor (private fb: UntypedFormBuilder) {
   }
 
   generateForm () {
     this.loginForm = this.fb.group ({
-      userName: new FormControl ('', [Validators.maxLength (InputFieldValidation.USER_NAME_MAX_LENGTH)]),
-      password: new FormControl ('', [Validators.maxLength (InputFieldValidation.USER_NAME_MAX_LENGTH)]),
-      captcha: new FormControl ('')
+      userName: new UntypedFormControl ('', [Validators.maxLength (InputFieldValidation.USER_NAME_MAX_LENGTH)]),
+      password: new UntypedFormControl ('', [Validators.maxLength (InputFieldValidation.USER_NAME_MAX_LENGTH)]),
+      captcha: new UntypedFormControl ('')
     });
     if (this.isCaptchaRequired) {
       this.loginForm.controls['captcha'].setValidators (Validators.required);

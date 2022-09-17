@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es6",
+    "target": "es2020",
     "noImplicitAny": false,
     "sourceMap": true,
     "declaration": false,

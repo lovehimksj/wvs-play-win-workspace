@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginControl } from '@wvs-play-win-workspace/shared/types';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { CaptchaService } from '@wvs-play-win-workspace/shared/shared-util';
 import { AuthenticationFacadeService } from '@wvs-play-win-workspace/data-access-layer';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class LoginPageComponent implements OnInit {
   loginControl: LoginControl;
 
-  constructor (private formBuilder: FormBuilder,
+  constructor (private formBuilder: UntypedFormBuilder,
                private captchaService: CaptchaService,
                private authenticationFacadeService: AuthenticationFacadeService,
                private router: Router) {
