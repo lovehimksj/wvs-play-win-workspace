@@ -71,8 +71,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "virtual11:build",
-            "proxyConfig": "apps/virtual11/proxy.conf.json",
-            "aot": true
+            "proxyConfig": "apps/virtual11/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -84,16 +83,6 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "virtual11:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/virtual11/tsconfig.app.json",
-              "apps/virtual11/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/virtual11/**"]
           }
         },
         "test": {
@@ -123,13 +112,6 @@
             "production": {
               "devServerTarget": "virtual11:serve:production"
             }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["apps/virtual11-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/virtual11-e2e/**"]
           }
         }
       }
@@ -169,16 +151,6 @@
             "buildTarget": "api:build"
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/api/tsconfig.app.json",
-              "apps/api/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/api/**"]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -195,16 +167,6 @@
       "projectType": "library",
       "schematics": {},
       "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/api-interfaces/tsconfig.lib.json",
-              "libs/api-interfaces/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**"]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -221,16 +183,6 @@
       "sourceRoot": "libs/shared/ui-kit/src",
       "prefix": "wvs",
       "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared/ui-kit/tsconfig.lib.json",
-              "libs/shared/ui-kit/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/shared/ui-kit/**"]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -253,16 +205,6 @@
       "sourceRoot": "libs/shared/types/src",
       "prefix": "wvs",
       "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared/types/tsconfig.lib.json",
-              "libs/shared/types/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/shared/types/**"]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -285,16 +227,6 @@
       "sourceRoot": "libs/shared/shared-util/src",
       "prefix": "wvs-play-win-workspace",
       "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared/shared-util/tsconfig.lib.json",
-              "libs/shared/shared-util/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/shared/shared-util/**"]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -327,16 +259,6 @@
             "production": {
               "tsConfig": "libs/backend/tsconfig.lib.prod.json"
             }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/backend/tsconfig.lib.json",
-              "libs/backend/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/backend/**"]
           }
         },
         "test": {
@@ -373,16 +295,6 @@
             }
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/data-access-layer/tsconfig.lib.json",
-              "libs/data-access-layer/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/data-access-layer/**"]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -405,16 +317,6 @@
       "sourceRoot": "libs/data-access-store/src",
       "prefix": "wvs-play-win-workspace",
       "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/data-access-store/tsconfig.lib.json",
-              "libs/data-access-store/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/data-access-store/**"]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -437,16 +339,6 @@
       "projectType": "library",
       "schematics": {},
       "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/feature/player-master/tsconfig.lib.json",
-              "libs/feature/player-master/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/feature/player-master/**"]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -463,19 +355,6 @@
       "projectType": "library",
       "schematics": {},
       "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/feature/tournament-master/tsconfig.lib.json",
-              "libs/feature/tournament-master/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/feature/tournament-master/**"
-            ]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {

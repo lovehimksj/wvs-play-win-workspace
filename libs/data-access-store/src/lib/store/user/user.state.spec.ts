@@ -7,8 +7,9 @@ describe('User store', () => {
   let store: Store;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [NgxsModule.forRoot([UserState])]
-    }).compileComponents();
+    imports: [NgxsModule.forRoot([UserState])],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
     store = TestBed.get(Store);
   }));
 

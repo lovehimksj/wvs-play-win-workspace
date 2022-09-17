@@ -7,8 +7,9 @@ describe('Master store', () => {
   let store: Store;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [NgxsModule.forRoot([MasterState])]
-    }).compileComponents();
+    imports: [NgxsModule.forRoot([MasterState])],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
     store = TestBed.get(Store);
   }));
 

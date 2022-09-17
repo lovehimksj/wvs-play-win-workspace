@@ -6,7 +6,7 @@ describe('PlayerMapperService', () => {
   let service: PlayerMapperService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({ teardown: { destroyAfterEach: false } });
     service = TestBed.inject(PlayerMapperService);
   });
 

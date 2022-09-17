@@ -6,7 +6,7 @@ describe('PlayerFacadeImplService', () => {
   let service: PlayerFacadeImplService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({ teardown: { destroyAfterEach: false } });
     service = TestBed.inject(PlayerFacadeImplService);
   });
 

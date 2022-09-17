@@ -9,9 +9,10 @@ import {CaptchaService} from './captcha.service';
 describe('CaptchaService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-        imports: [HttpClientModule],
-      providers: [CaptchaService]
-    });
+    imports: [HttpClientModule],
+    providers: [CaptchaService],
+    teardown: { destroyAfterEach: false }
+});
   });
 
   it('should be created', inject([CaptchaService], (service: CaptchaService) => {

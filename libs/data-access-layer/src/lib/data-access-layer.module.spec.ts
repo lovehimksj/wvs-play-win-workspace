@@ -4,8 +4,9 @@ import { DataAccessLayerModule } from './data-access-layer.module';
 describe('DataAccessLayerModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [DataAccessLayerModule]
-    }).compileComponents();
+    imports: [DataAccessLayerModule],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
   }));
 
   it('should create', () => {

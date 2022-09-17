@@ -4,8 +4,9 @@ import { SharedTypesModule } from './shared-types.module';
 describe('SharedTypesModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [SharedTypesModule]
-    }).compileComponents();
+    imports: [SharedTypesModule],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
   }));
 
   it('should create', () => {

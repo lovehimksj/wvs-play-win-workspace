@@ -8,8 +8,9 @@ describe('HeaderToolbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderToolbarComponent ]
-    })
+    declarations: [HeaderToolbarComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   }));
 

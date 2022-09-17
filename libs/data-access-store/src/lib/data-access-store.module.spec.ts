@@ -4,8 +4,9 @@ import { DataAccessStoreModule } from './data-access-store.module';
 describe('DataAccessStoreModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [DataAccessStoreModule]
-    }).compileComponents();
+    imports: [DataAccessStoreModule],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
   }));
 
   it('should create', () => {

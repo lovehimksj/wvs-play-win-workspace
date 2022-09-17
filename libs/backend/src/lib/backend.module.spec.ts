@@ -4,8 +4,9 @@ import { BackendModule } from './backend.module';
 describe('BackendModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [BackendModule]
-    }).compileComponents();
+    imports: [BackendModule],
+    teardown: { destroyAfterEach: false }
+}).compileComponents();
   }));
 
   it('should create', () => {
