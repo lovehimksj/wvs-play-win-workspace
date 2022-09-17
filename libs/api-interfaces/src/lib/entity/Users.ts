@@ -1,11 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity } from "typeorm";
 
 @Entity("users")
-export class Users {
-  @PrimaryGeneratedColumn( { type:"int",name: "id"})
+export default class Users {
+  @Column("int", { name: "id", nullable: true })
   id: number;
 
-  @Column("varchar", { name: "user_id", length: 255 })
+  @Column("varchar", { primary: true, name: "user_id", length: 255 })
   userId: string;
 
   @Column("datetime", { name: "create_date", nullable: true })
@@ -13,6 +13,9 @@ export class Users {
 
   @Column("varchar", { name: "email", nullable: true, length: 255 })
   email: string | null;
+
+  @Column("varchar", { name: "user_avatar", nullable: true, length: 255 })
+  userAvatar: string | null;
 
   @Column("varchar", { name: "first_name", nullable: true, length: 255 })
   firstName: string | null;
@@ -38,15 +41,8 @@ export class Users {
   @Column("datetime", { name: "update_date", nullable: true })
   updateDate: Date | null;
 
-  @Column("varchar", { name: "user_avatar", nullable: true, length: 255 })
-  avatar: string | null;
-
-  @Column("timestamp", { name: "lastLoginTime", nullable: false })
-  lastLoginTime: Date;
 
   constructor(init?: Partial<Users>) {
     Object.assign(this, init);
   }
 }
-
-

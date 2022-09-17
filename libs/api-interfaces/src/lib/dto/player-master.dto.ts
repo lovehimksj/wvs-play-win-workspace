@@ -35,4 +35,8 @@ export class PlayerMasterDto {
 
   @ApiProperty({required: false, readOnly: true })
   speciality: string | null;
+
+  constructor(init?: Partial<PlayerMasterDto>) {
+    Object.assign(this, init);
+  }
 }

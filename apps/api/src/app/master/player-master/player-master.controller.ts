@@ -12,12 +12,13 @@ import {
 import { UtilService } from '../../util/util.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiImplicitFile } from '@nestjs/swagger/dist/decorators/api-implicit-file.decorator';
+import { AppLoggerService } from '../../app-logger.service';
 
 @ApiTags ('player master')
 @Controller ('player')
 export class PlayerMasterController {
 
-  constructor (private readonly playerMasterService: PlayerMasterService, private readonly utilService: UtilService) {
+  constructor (private readonly playerMasterService: PlayerMasterService, private readonly logger: AppLoggerService) {
   }
 
 
@@ -27,21 +28,21 @@ export class PlayerMasterController {
     type: SuccessResponseModel,
     status: HttpStatus.OK
   })
-  async findAll (@Res () res: Response): Promise<SuccessResponseModel<Array<PlayerMasterDto>>> {
+  async findAll (@Res () res: Response): Promise<void> {
     try {
-      let result: Array<PlayerMasterDto>;
-      const response: SuccessResponseModel<Array<PlayerMasterDto>> = new SuccessResponseModel<Array<PlayerMasterDto>> ();
-      result = await this.playerMasterService.getAll ();
-      if (result && result.length > 0) {
-        response.status = HttpStatus.OK;
-        response.data = result;
-        response.message = 'Players List Fetched';
-      } else {
-        response.status = HttpStatus.NO_CONTENT;
-        response.data = result;
-        response.message = 'No Player is available';
-      }
-      return res.status (HttpStatus.OK).send (response);
+      this.playerMasterService.getAll ().then(value => {
+        this.logger.log(typeof value, 'value');
+        if(value && value.length > 0) {
+          const successResponseModel: SuccessResponseModel<Array<PlayerMasterDto>> = new SuccessResponseModel<Array<PlayerMasterDto>> (value, HttpStatus.OK, 'Players List Fetched');
+          res.status (HttpStatus.OK).send (successResponseModel);
+        } else {
+          const successResponseModel: SuccessResponseModel<Array<PlayerMasterDto>> = new SuccessResponseModel<Array<PlayerMasterDto>> (value, HttpStatus.NO_CONTENT, 'No Player is available');
+          res.status (HttpStatus.OK).send (successResponseModel);
+        }
+      }).catch(reason => {
+        const successResponseModel: SuccessResponseModel<any> = new SuccessResponseModel<any> (reason, HttpStatus.INTERNAL_SERVER_ERROR, 'Inrenal error');
+        res.status (HttpStatus.OK).send (successResponseModel);
+      });
     } catch (e) {
       throw new Error (e);
     }
@@ -65,11 +66,11 @@ export class PlayerMasterController {
   )
   @ApiConsumes ('multipart/form-data')
   @ApiImplicitFile ({ name: 'file', required: false })
-  async saveTeam (@UploadedFile () file, @Body () playerMasterDto: PlayerMasterDto, @Res () res: Response) {
+  async save (@UploadedFile () file, @Body () playerMasterDto: PlayerMasterDto, @Res () res: Response) {
     console.log (JSON.stringify (file));
-    const result = await this.playerMasterService.savePlayer (playerMasterDto, file.filename);
+    const result = await this.playerMasterService.savePlayer (playerMasterDto, file?.filename);
     Logger.log (JSON.stringify (result));
-    const successResponseModel: SuccessResponseModel<Array<CouncilMaster>> = new SuccessResponseModel<Array<CouncilMaster>> (null, HttpStatus.OK, 'Game is fetched Successfully');
+    const successResponseModel: SuccessResponseModel<PlayerMasterDto> = new SuccessResponseModel<PlayerMasterDto> (result, HttpStatus.OK, 'Game is fetched Successfully');
     res.status (HttpStatus.OK).send (successResponseModel);
   }
 

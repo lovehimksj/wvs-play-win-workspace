@@ -5,10 +5,11 @@ import { PlayerMasterImplService } from './player-master-impl.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PlayerMaster } from '@wvs-play-win-workspace/api-interfaces';
 import { UtilService } from '../../util/util.service';
+import { AppLoggerService } from '../../app-logger.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([PlayerMaster]), CacheModule.register ({ ttl: 100000 })],
   controllers: [PlayerMasterController],
-  providers: [{provide:PlayerMasterService, useClass:PlayerMasterImplService}, UtilService]
+  providers: [{provide:PlayerMasterService, useClass:PlayerMasterImplService}, UtilService, AppLoggerService]
 })
 export class PlayerMasterModule {}

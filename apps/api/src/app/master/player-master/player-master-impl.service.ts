@@ -1,4 +1,5 @@
-import { CACHE_MANAGER, Inject, Injectable, Logger } from '@nestjs/common';
+import { APP_CONSTANT } from '@wvs-play-win-workspace/shared/types';
+import { CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
 import { PlayerMasterService } from './player-master.service';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PlayerMaster, PlayerMasterDto } from '@wvs-play-win-workspace/api-interfaces';
@@ -10,19 +11,31 @@ export class PlayerMasterImplService implements PlayerMasterService {
                @Inject (CACHE_MANAGER) private cacheManager) {
   }
 
-  savePlayer (playerMasterDto: PlayerMasterDto, filename: any): Promise<PlayerMasterDto> {
+  async savePlayer (playerMasterDto: PlayerMasterDto, filename: string): Promise<PlayerMasterDto> {
     const playerMaster: PlayerMaster = new PlayerMaster(playerMasterDto);
-    console.log(playerMaster);
-    return undefined;
+    playerMaster.createDate = new Date();
+    playerMaster.creditPoint = playerMasterDto.creditPoint;
+    playerMaster.playerName = playerMasterDto.playerName;
+    playerMaster.playerDese = playerMasterDto.playerDescription;
+    playerMaster.playingNation = playerMasterDto.playingNation;
+    playerMaster.specialityId = playerMasterDto.specialityId;
+    playerMaster.pictureFileName  = filename;
+    playerMaster.isActive  = APP_CONSTANT.ACTIVE_STATUS_CODE;
+    try {
+      return await this.playerMasterRepository.save(playerMaster)
+        .then(value => new PlayerMasterDto (value))
+        .catch(error => new PlayerMasterDto ());
+    } catch (error) {
+      throw new Error (error);
+    }
+    
   }
 
   async getAll (): Promise<Array<PlayerMasterDto>> {
-    const master = await this.cacheManager.get('master');
-    Logger.log(JSON.stringify(master), 'master');
-    return await this.playerMasterRepository.find ({ isActive: 1 })
+    const playersList: Array<PlayerMasterDto> = [];
+    return await this.playerMasterRepository.find ()
       .then ((value: Array<PlayerMaster>) => {
         if (value && value.length > 0) {
-          const playersList: Array<PlayerMasterDto> = [];
           value.forEach ((value1: PlayerMaster) => {
             const playerMasterDto: PlayerMasterDto = new PlayerMasterDto ();
             playerMasterDto.playerName = value1.playerName;
@@ -35,9 +48,8 @@ export class PlayerMasterImplService implements PlayerMasterService {
             playerMasterDto.speciality = value1.playingNation;
             playersList.push (playerMasterDto);
           });
-        } else {
-          return null;
         }
+        return playersList;
       });
   }
 }

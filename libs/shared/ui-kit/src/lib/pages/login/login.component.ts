@@ -26,7 +26,8 @@ export class LoginComponent {
   }*/
   login () {
     const result = this.entity.isFormValid();
-    this.loginSubmit.emit(result);
+    if(!result) return false;
+    this.loginSubmit.emit(this.entity.loginForm.value);
   }
 
   reloadCaptcha () {

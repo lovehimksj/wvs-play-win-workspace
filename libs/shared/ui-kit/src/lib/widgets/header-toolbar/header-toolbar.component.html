@@ -1,0 +1,34 @@
+<mat-toolbar class="dark mat-elevation-z8">
+  <button
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    type="button"
+    (click)="menuClicked()"
+  >
+    <mat-icon aria-label="Side nav toggle icon" class="white-text">menu</mat-icon>
+  </button>
+  <span class="white-text">{{entity.pageTitle | translate}}</span>
+  <span class="example-fill-remaining-space"></span>
+  <button [matMenuTriggerFor]="userMenu" class="user-button" mat-button>
+    <div class="flex-row">
+      <img *ngIf="entity.userDetail.avatar" class="avatar mini mr-0 mr-sm-16" [src]="'api/file/avatar?imageName=/' + entity.userDetail.avatar">
+      <span *ngIf="!entity.userDetail.avatar" class="avatar mini mr-0 mr-sm-16 primary dark-text fw-400">{{entity.userDetail.firstName?.charAt(0) | uppercase}}{{entity.userDetail.lastName?.charAt(0) | uppercase}}</span>
+      <!-- <span class="fs-14 white-text">{{entity.userDetail.firstName}}</span> -->
+      <!-- <mat-icon class="white-text">keyboard_arrow_down</mat-icon> -->
+    </div>
+  </button>
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span>Redial</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

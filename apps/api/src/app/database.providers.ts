@@ -8,7 +8,7 @@ export const DatabaseProviders = [
       port: 3306,
       username: 'root',
       password: 'root',
-      database: 'play_cricket_win',
+      database: 'playcricketwin',
       entities: [
           __dirname + '/../**/*.entity{.ts,.js}',
       ],

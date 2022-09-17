@@ -1,1 +1,21 @@
-<wvs-login [entity]="loginControl" (loginSubmit)='login($event)' (refreshCaptcha)="reloadCaptcha()"></wvs-login>
+<div class="timepay-splash" *ngIf="!isPageLoaded">
+    <div class="splash-center">
+        <div class="logo">
+            <img src="./assets/images/icon/loader.gif">
+        </div>
+        <!--src/assets/images/icon/loader.gif-->
+        <!-- Material Design Spinner -->
+
+        <!-- <div class="spinner-wrapper">
+            <div class="spinner">
+                <mat-progress-spinner
+                        [diameter]="72"
+                        [strokeWidth]="5"
+                        [mode]="'indeterminate'">
+                </mat-progress-spinner>
+            </div>
+        </div> -->
+        <!-- / Material Design Spinner -->
+    </div>
+</div>
+<router-outlet></router-outlet>

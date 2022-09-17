@@ -7,6 +7,7 @@ import { AppImplService } from './app-impl.service';
 import { SpecialityCodeMaster } from '@wvs-play-win-workspace/api-interfaces';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { UserModule } from './user/user.module';
+import { FileMasterModule } from './master/file-master/file-master.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot ({
@@ -15,11 +16,11 @@ import { UserModule } from './user/user.module';
     port: 3306,
     username: 'root',
     password: 'root',
-    database: 'play_cricket_win',
+    database: 'playcricketwin',
     autoLoadEntities: true,
     entities: [],
     synchronize: true
-  }), MasterModule, CacheModule.register ({ ttl: 100000 }), TypeOrmModule.forFeature ([SpecialityCodeMaster]), UserModule],
+  }), MasterModule, CacheModule.register ({ ttl: 100000 }), TypeOrmModule.forFeature ([SpecialityCodeMaster]), UserModule, FileMasterModule],
   controllers: [AppController],
   providers: [{ provide: AppService, useClass: AppImplService }, {
     provide: APP_INTERCEPTOR,

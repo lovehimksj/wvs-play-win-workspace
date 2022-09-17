@@ -25,15 +25,7 @@ export class GameMasterController {
     try {
       return await this.gameMaster.getAllGame ()
         .then (value => {
-          const data: Array<GameMasterDto> = [];
-          value.forEach (value1 => {
-            const element = new GameMasterDto ();
-            element.gameName = value1.gameName;
-            element.gameDescription = value1.gameDese;
-            element.gameId = value1.gameId;
-            data.push (element);
-          });
-          const successResponseModel: SuccessResponseModel<Array<GameMasterDto>> = new SuccessResponseModel<Array<GameMasterDto>> (data, HttpStatus.OK, 'Game is fetched Successfully');
+          const successResponseModel: SuccessResponseModel<Array<GameMasterDto>> = new SuccessResponseModel<Array<GameMasterDto>> (value, HttpStatus.OK, 'Game is fetched Successfully');
           res.status (HttpStatus.OK).send (successResponseModel);
         });
     } catch (e) {
@@ -132,11 +124,7 @@ export class GameMasterController {
       this.gameMaster.getGameById (gameId).then(value => {
         Logger.log(typeof value, 'value');
         if(value) {
-          const gameMasterDto: GameMasterDto = new GameMasterDto();
-          gameMasterDto.gameName = value.gameName;
-          gameMasterDto.gameDescription = value.gameDese;
-          gameMasterDto.gameId = value.gameId;
-          const successResponseModel: SuccessResponseModel<GameMasterDto> = new SuccessResponseModel<GameMasterDto> (gameMasterDto, HttpStatus.OK, 'Status changed successfully');
+          const successResponseModel: SuccessResponseModel<GameMasterDto> = new SuccessResponseModel<GameMasterDto> (value, HttpStatus.OK, 'Status changed successfully');
           res.status (HttpStatus.OK).send (successResponseModel);
         } else {
           const successResponseModel: SuccessResponseModel<null> = new SuccessResponseModel<null> (null, HttpStatus.NO_CONTENT, 'Status changed successfully');

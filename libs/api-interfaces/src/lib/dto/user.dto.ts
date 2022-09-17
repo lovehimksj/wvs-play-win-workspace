@@ -25,7 +25,7 @@ export class UserDto {
   @ApiProperty({required: true })
   mobile: string | null;
 
-  @ApiProperty({readOnly:true, required: true })
+  @ApiProperty({readOnly:true})
   password: string | null;
 
   @ApiProperty({readOnly:true, required: false })

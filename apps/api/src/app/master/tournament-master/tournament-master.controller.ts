@@ -51,11 +51,11 @@ export class TournamentMasterController {
             const successResponseModel: SuccessResponseModel<TournamentMasterDto> = new SuccessResponseModel<TournamentMasterDto> (value, HttpStatus.OK, 'Game is fetched Successfully');
             res.status (HttpStatus.OK).send (successResponseModel);
           } else {
-            const successResponseModel: SuccessResponseModel<Array<TournamentMasterDto>> = new SuccessResponseModel<Array<TournamentMasterDto>> (value, HttpStatus.NO_CONTENT, 'No tournament is found');
+            const successResponseModel: SuccessResponseModel<TournamentMasterDto> = new SuccessResponseModel<TournamentMasterDto> (value, HttpStatus.NO_CONTENT, 'No tournament is found');
             res.status (HttpStatus.OK).send (successResponseModel);
           }
         }).catch (reason => {
-          const successResponseModel: SuccessResponseModel<Array<TournamentMasterDto>> = new SuccessResponseModel<Array<TournamentMasterDto>> (null, HttpStatus.INTERNAL_SERVER_ERROR, 'Game is fetched Successfully');
+          const successResponseModel: SuccessResponseModel<TournamentMasterDto> = new SuccessResponseModel<TournamentMasterDto> (null, HttpStatus.INTERNAL_SERVER_ERROR, 'Game is fetched Successfully');
           res.status (HttpStatus.OK).send (successResponseModel);
         });
     } catch (e) {

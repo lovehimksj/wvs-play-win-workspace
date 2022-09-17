@@ -7,6 +7,9 @@
 @import 'core/gutter';
 @import 'core/animation';
 
+.tranparent {
+  background-color: transparent !important;
+}
 
 .primary {
   background-color: #58dacb !important;
@@ -157,4 +160,42 @@
 
 .input-full-width {
   width: 100%;
+}
+
+.user-detail {
+  flex-direction: column;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 0 8px 40px 8px;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 0;
+  padding-bottom: 30px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: unset;
+  margin: 0 auto;
+  border: 2px solid #58dbcb;
+  &.mini {
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+  }
+}
+
+.mat-drawer.mat-sidenav.mat-drawer-side.mat-drawer-opened {
+  width: 240px;
 }

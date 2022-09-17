@@ -1,0 +1,13 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [fixedInViewport]="true"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)" class="sidenav">
+    <wvs-side-nav [entity]="sideNavControl"></wvs-side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <wvs-header-toolbar (menuToggle)="drawer.toggle(); menuCollapsed = !menuCollapsed" [entity]="headerControl">
+    </wvs-header-toolbar>
+    <div class="main">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

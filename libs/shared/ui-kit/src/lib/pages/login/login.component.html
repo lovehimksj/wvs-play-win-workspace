@@ -11,21 +11,20 @@
     <div class="logo animated fadeInLeft">
       <!--      <img class="" src="assets/images/logos/car_white.png">-->
     </div>
-    <div class="title fs-48 fw-500 accent-text animated fadeInLeft"> Welcome to TimePay Chalo Parking!</div>
+    <div class="title fs-48 fw-500 accent-text animated fadeInLeft">{{'loginPage.welcomeMessage' | translate}}</div>
   </div>
   <div class="login-form-wrapper animated slideInRight">
     <div *ngIf="entity" class="login-form">
-      <div class="title fs-22 text-uppercase">Login To Your Account</div>
+      <div class="title fs-22 text-uppercase">{{'loginPage.loginForm.title' | translate}}</div>
       <form (submit)="login()" [formGroup]="entity.loginForm" class="" name="loginForm">
         <mat-form-field appearance="outline" class="input-full-width">
-          <mat-label>User Name<sup
-          >*</sup></mat-label>
-          <input [formControlName]="'userName'" autocomplete="off" matInput placeholder="User Name">
+          <mat-label>{{'loginPage.loginForm.userName' | translate}}<sup *ngIf="entity.isEmailRequired">*</sup></mat-label>
+          <input [formControlName]="'userName'" autocomplete="off" matInput placeholder="{{'loginPage.loginForm.userName' | translate}}">
           <mat-icon matSuffix>person_outline</mat-icon>
         </mat-form-field>
         <mat-form-field appearance="outline" class="input-full-width">
-          <mat-label>Password<sup>*</sup></mat-label>
-          <input [formControlName]="'password'" [type]="'password'" autocomplete="off" matInput placeholder="Password">
+          <mat-label>{{'loginPage.loginForm.password' | translate}}<sup *ngIf="entity.isPasswordRequired">*</sup></mat-label>
+          <input [formControlName]="'password'" [type]="'password'" autocomplete="off" matInput placeholder="{{'loginPage.loginForm.password' | translate}}">
           <mat-icon matSuffix>lock</mat-icon>
         </mat-form-field>
         <div class="col s12 m6 l3 text-center" id="captchaImage" *ngIf="entity.isCaptchaRequired">
@@ -36,16 +35,16 @@
           </button>
         </div>
         <mat-form-field appearance="outline" class="input-full-width" *ngIf="entity.isCaptchaRequired">
-          <mat-label>Captcha<sup>*</sup></mat-label>
+          <mat-label>{{'loginPage.loginForm.captcha' | translate}}<sup>*</sup></mat-label>
           <input [formControlName]="'captcha'" autocomplete="off" matInput placeholder="Captcha">
         </mat-form-field>
         <div class="remember-forgot-password" *ngIf="entity.isForgotPassword || entity.isRememberMe">
-          <mat-checkbox [color]="'primary'" class="m-b-sm fs-14" *ngIf="entity.isRememberMe">Remember Me</mat-checkbox>
-          <a class="forgot-password fs-14 fw-500 primary-text m-b-sm" href="javascript:void(0)" *ngIf="entity.isForgotPassword">Forgot Password?</a>
+          <mat-checkbox [color]="'primary'" class="m-b-sm fs-14" *ngIf="entity.isRememberMe">{{'loginPage.loginForm.remember' | translate}}</mat-checkbox>
+          <a class="forgot-password fs-14 fw-500 primary-text m-b-sm" href="javascript:void(0)" *ngIf="entity.isForgotPassword">{{'loginPage.loginForm.forgotPassword' | translate}}</a>
         </div>
         <div class="input-full-width p-v-md">
           <button class="fs-18 dark input-full-width white-text text-uppercase m-b-xs m-t-xs p-v-xxs" mat-raised-button
-                  type="submit">Login
+                  type="submit">{{'loginPage.loginForm.login' | translate}}
           </button>
         </div>
       </form>

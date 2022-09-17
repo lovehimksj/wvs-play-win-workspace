@@ -1,0 +1,35 @@
+.selectable-column {
+    max-width: 40px;
+}
+
+.mat-header-cell {
+    color: #fff !important;
+}
+
+.mat-header-row {
+    background: #193a58 !important;
+}
+.data-table-card-header {
+    margin: 0 -16px 24px;
+    border-left-style: solid;
+    border-left-width: 8px;
+    border-left-color: #193a58;
+    border-right-color: #193a58;
+    padding: 8px 8px 8px 0px;
+}
+
+.mat-card.data-table {
+    height: calc(100% - 112px);
+    display: block;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    .mat-card-content {
+      height: calc(100% - 124px);
+      overflow: scroll;
+    }
+  }
+  .avatar-cell {
+    max-width: 40px;
+  }

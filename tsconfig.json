@@ -1,20 +1,21 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
+    "module": "commonjs",
+    "target": "es6",
+    "noImplicitAny": false,
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "rootDir": ".",
     "paths": {
       "@wvs-play-win-workspace/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
@@ -28,8 +29,23 @@
       "@wvs-play-win-workspace/shared/shared-util": [
         "libs/shared/shared-util/src/index.ts"
       ],
-      "@wvs-play-win-workspace/backend": ["libs/backend/src/index.ts"]
+      "@wvs-play-win-workspace/backend": ["libs/backend/src/index.ts"],
+      "@wvs-play-win-workspace/data-access-layer": [
+        "libs/data-access-layer/src/index.ts"
+      ],
+      "@wvs-play-win-workspace/data-access-store": [
+        "libs/data-access-store/src/index.ts"
+      ],
+      "@wvs-play-win-workspace/feature/player-master": [
+        "libs/feature/player-master/src/index.ts"
+      ],
+      "@wvs-play-win-workspace/feature/tournament-master": [
+        "libs/feature/tournament-master/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules", "tmp"],
+  "angularCompilerOptions": {
+    "enableIvy": true
+  }
 }

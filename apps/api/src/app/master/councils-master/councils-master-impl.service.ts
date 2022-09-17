@@ -47,20 +47,21 @@ export class CouncilsMasterImplService implements CouncilsMasterService {
     });
   }
 
-  async updateCouncil (councilId: number, councilDto: CouncilMasterDto): Promise<any> {
+  async updateCouncil (councilId: number, councilDto: CouncilMasterDto): Promise<CouncilMasterDto> {
     try {
       const councilMaster: CouncilMaster = await this.councilMaster.findOne (councilId);
       Logger.log (JSON.stringify (councilMaster), 'Current council');
       councilMaster.councilName = councilDto.councilName;
       councilMaster.councilDese = councilDto.councilDescription;
       councilMaster.updateDate = new Date ();
-      return await this.councilMaster.update ({ councilId: councilId }, councilMaster);
+      await this.councilMaster.update ({ councilId: councilId }, councilMaster);
+      return councilDto;
     } catch (e) {
-      return new Error (e);
+      throw new Error (e);
     }
   }
 
-  async create (data: CouncilMasterDto): Promise<any> {
+  async create (data: CouncilMasterDto): Promise<CouncilMasterDto> {
     Logger.log (data, 'data');
     const councilsMaster: CouncilMaster = new CouncilMaster ();
     councilsMaster.councilName = data.councilName;
@@ -77,11 +78,29 @@ export class CouncilsMasterImplService implements CouncilsMasterService {
     gameCouncilDetail.isActive = 1;
     gameCouncilDetail.updateDate = null;
     await this.gameCouncils.save (gameCouncilDetail);
-    return council;
+    return data;
   }
 
-  async getAllCouncils (): Promise<Array<CouncilMaster>> {
-    return this.councilMaster.find ();
+  async getAllCouncils (): Promise<Array<CouncilMasterDto>> {
+    // return this.councilMaster.find ();
+    return await this.councilMaster.find().then ((value: Array<CouncilMaster>) => {
+      try {
+        const councilMasterDtoList: Array<CouncilMasterDto> = [];
+        if(value && value.length > 0) {
+            value.forEach (item => {
+              const councilMasterDto: CouncilMasterDto = new CouncilMasterDto ();
+              councilMasterDto.councilName = item.councilName;
+              councilMasterDto.councilId = item.councilId;
+              councilMasterDto.councilDescription = item.councilDese;
+              councilMasterDtoList.push(councilMasterDto)
+            })
+          }
+          return councilMasterDtoList
+      } catch (e) {
+        console.log (e);
+        throw new Error (e);
+      }
+    });
   }
 
 }

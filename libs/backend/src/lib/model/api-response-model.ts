@@ -1,7 +1,6 @@
-import { HttpStatus } from '@nestjs/common';
 
-export interface ApiResponseModel {
-  data: object | Array<any> | string;
+export interface ApiResponseModel<T> {
+  data: T;
+  status: number;
   message: string;
-  status: HttpStatus;
 }

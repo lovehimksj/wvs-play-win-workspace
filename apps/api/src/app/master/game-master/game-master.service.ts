@@ -3,15 +3,15 @@ import { GameMaster, GameMasterDto } from '@wvs-play-win-workspace/api-interface
 
 @Injectable ()
 export abstract class GameMasterService {
-  abstract getGameById (gameId: number): Promise<GameMaster>;
+  abstract getGameById (gameId: number): Promise<GameMasterDto>;
 
-  abstract updateStatus (id: number, status: number): Promise<any>;
+  abstract updateStatus (id: number, status: number): Promise<GameMasterDto>;
 
-  abstract deleteGame (gameId: number): Promise<any>;
+  abstract deleteGame (gameId: number): Promise<GameMasterDto>;
 
-  abstract saveGame (createCatDto: GameMasterDto): Promise<GameMaster>;
+  abstract saveGame (createCatDto: GameMasterDto): Promise<GameMasterDto>;
 
-  abstract getAllGame (): Promise<GameMaster[]>;
+  abstract getAllGame (): Promise<GameMasterDto[]>;
 
-  abstract updateGame (updateCatDto: GameMasterDto, gameId: number): Promise<any>;
+  abstract updateGame (updateCatDto: GameMasterDto, gameId: number): Promise<GameMasterDto>;
 }

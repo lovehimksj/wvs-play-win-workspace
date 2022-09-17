@@ -1,3 +1,4 @@
+import { FlexLayoutModule } from '@angular/flex-layout';
 /*
  * @Author Himanshu Maheshwari
  * @email animatorhimanshu.ksj@gmail.com
@@ -75,6 +76,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     MatTooltipModule,
     MatTreeModule,
     MatBottomSheetModule,
+    FlexLayoutModule
   ],
   declarations: [],
   exports: [CommonModule,
@@ -110,6 +112,8 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     MatTooltipModule,
     MatTreeModule,
     MatBottomSheetModule,
-    MatSlideToggleModule],
+    MatSlideToggleModule,
+    FlexLayoutModule
+  ],
 })
 export class MaterialModules {}

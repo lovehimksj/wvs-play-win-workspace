@@ -1,0 +1,183 @@
+<mat-toolbar class="mat-elevation-z8 primary" color="primary">
+  <div class="navbar-top primary">
+    <div class="logo">
+      <img [src]="'assets/images/logos/car_dark_blue.png'" class="logo-icon">
+      <span class="logo-text fs-18 fw-500 white-text">WVS Logistic</span>
+    </div>
+  </div>
+</mat-toolbar>
+<!--        <perfect-scrollbar class="dark sideNavScroll">-->
+<div class="navbar-scroll-container dark scroll-window">
+  <div class="user-detail primary">
+    <div class="dark-text fs-16 fw-500">{{entity.userDetails.firstName}} {{entity.userDetails.lastName}}</div>
+    <div class="white-text fs-14 m-t-xxs fw-500">{{entity.userDetails.email}}</div>
+    <div class="white-text fs-12 m-t-xxs fw-500">Last Login
+      : {{entity.userDetails.lastLoginTime | date : 'short'}}</div>
+  </div>
+  <div class="avatar-container dark">
+    <span class="avatar dark primary-text fw-300 fs-32 flex-v-h-center">{{entity.userDetails.firstName?.charAt(0) | uppercase}}{{entity.userDetails.lastName?.charAt(0) | uppercase}}</span>
+  </div>
+  <mat-nav-list class="navbar-content wvs-side-nav">
+    <mat-accordion>
+      <a (click)="selectedMenu('app/dashboard/playwin')" [ngClass]="{'active':isActive('app/dashboard/playwin')}"
+         [routerLink]="['/', 'app', 'dashboard', 'playwin']"
+         class="white-text fs-14 fw-500"
+         mat-list-item
+      >Dashboard</a>
+      <mat-expansion-panel hideToggle (opened)="selectedRoot('masterManagement')" [expanded]="isActiveRoot() === 'masterManagement'"
+                           class="dark mat-elevation-z0">
+        <mat-expansion-panel-header [collapsedHeight]="'40px'" [expandedHeight]="'40px'" class="active">
+          <mat-panel-title class="white-text">
+            Master Management
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a [ngClass]="{'active':isActive('app/masterManagement/parking')}" [routerLink]="['/', 'app', 'masterManagement', 'game']"
+           class="sub-manu-active primary-text fs-14 fw-500"
+           mat-list-item>Games</a>
+        <a [ngClass]="{'active':isActive('app/parkingManagement/generateQR')}" [routerLink]="['/', 'app', 'parkingManagement', 'QRCreation']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Councils</a>
+
+        <a [ngClass]="{'active':isActive('app/parkingManagement/manualExit')}" [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Tournaments</a>
+        <a [ngClass]="{'active':isActive('app/parkingManagement/manualExit')}" [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Matchs</a>
+        <a [ngClass]="{'active':isActive('app/parkingManagement/manualExit')}" [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Teams</a>
+        <a [ngClass]="{'active':isActive('app/parkingManagement/manualExit')}" [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Players</a>
+      </mat-expansion-panel>
+
+      <!--<mat-expansion-panel (opened)="selectedRoot('vendorManagement')" [expanded]="isActiveRoot() === 'vendorManagement'"
+                           class="dark mat-elevation-z0">
+        <mat-expansion-panel-header [collapsedHeight]="'48px'" [expandedHeight]="'48px'">
+          <mat-panel-title class="white-text">
+            Vendor Management
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a [ngClass]="{'active':isActive('app/vendorManagement/vendor')}" [routerLink]="['/', 'app', 'vendorManagement', 'vendor']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Vendors</a>
+        <a [ngClass]="{'active':isActive('app/vendorManagement/parkingUser')}" [routerLink]="['/', 'app', 'vendorManagement', 'parkingUser']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Parking User</a>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="selectedRoot('reports')" [expanded]="isActiveRoot() === 'reports'"
+                           class="dark mat-elevation-z0">
+        <mat-expansion-panel-header [collapsedHeight]="'48px'" [expandedHeight]="'48px'">
+          <mat-panel-title class="white-text">
+            Reports
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a [ngClass]="{'active':isActive('app/reports/complaintReport')}" [routerLink]="['/', 'app', 'reports', 'complaintReport']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Complaint Report</a>
+        <a [ngClass]="{'active':isActive('app/reports/transactionReport')}" [routerLink]="['/', 'app', 'reports', 'transactionReport']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Transaction Report</a>
+        <a [ngClass]="{'active':isActive('app/reports/crashAnalyticReport')}" [routerLink]="['/', 'app', 'reports', 'crashAnalyticReport']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Crash Analytic Report</a>
+        <a [ngClass]="{'active':isActive('app/reports/customerReport')}" [routerLink]="['/', 'app', 'reports', 'customerReport']" class="primary-text fs-14 fw-500"
+           mat-list-item>Customer Report</a>
+        <a [ngClass]="{'active':isActive('app/reports/walletBalanceReport')}" [routerLink]="['/', 'app', 'reports', 'walletBalanceReport']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Wallet Balance Report</a>
+        <a [ngClass]="{'active':isActive('app/reports/payUTransactionReport')}" [routerLink]="['/', 'app', 'reports', 'payUTransactionReport']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>PayU Transaction Report</a>
+      </mat-expansion-panel>
+
+
+      <mat-expansion-panel (opened)="selectedRoot('helpDesk')" [expanded]="isActiveRoot() === 'helpDesk'"
+                           class="no-border dark mat-elevation-z0">
+        <mat-expansion-panel-header [collapsedHeight]="'48px'" [expandedHeight]="'48px'">
+          <mat-panel-title class="white-text">
+            Help Desk
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a [ngClass]="{'active':isActive('app/helpDesk/refund')}" [routerLink]="['/', 'app', 'helpDesk', 'refund']" class="primary-text fs-14 fw-500"
+           mat-list-item>Transactions Reversal</a>
+        <a [ngClass]="{'active':isActive('app/helpDesk/complaintDetails')}" [routerLink]="['/', 'app', 'helpDesk', 'complaintDetails']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Complaints</a>
+        <a [ngClass]="{'active':isActive('app/helpDesk/parkingCredit')}" [routerLink]="['/', 'app', 'helpDesk', 'parkingCredit']" class="primary-text fs-14 fw-500"
+           mat-list-item>Parking Credits</a>
+        <a [ngClass]="{'active':isActive('app/helpDesk/suspendResume')}" [routerLink]="['/', 'app', 'helpDesk', 'suspendResume']" class="primary-text fs-14 fw-500"
+           mat-list-item>Suspend/Resume</a>
+      </mat-expansion-panel>
+
+
+      <mat-expansion-panel (opened)="selectedRoot('userManagement')" [expanded]="isActiveRoot() === 'userManagement'"
+                           class="dark mat-elevation-z0">
+        <mat-expansion-panel-header [collapsedHeight]="'48px'" [expandedHeight]="'48px'">
+          <mat-panel-title class="white-text">
+            User Management
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a (click)="selectedMenu('app/userManagement/users')" [ngClass]="{'active':isActive('app/userManagement/users')}"
+           [routerLink]="['/', 'app', 'userManagement', 'users']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Users</a>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel
+        (opened)="selectedRoot('groupManagement')"
+        [expanded]="isActiveRoot() === 'groupManagement'"
+        class="no-border dark mat-elevation-z0">
+        <mat-expansion-panel-header [collapsedHeight]="'48px'" [expandedHeight]="'48px'">
+          <mat-panel-title class="white-text">
+            Group Management
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a (click)="selectedMenu('app/groupManagement/groups')" [ngClass]="{'active':isActive('app/groupManagement/groups')}"
+           [routerLink]="['/', 'app', 'groupManagement', 'groups']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Groups</a>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel
+        (opened)="selectedRoot('roleManagement')"
+        [expanded]="isActiveRoot() === 'roleManagement'"
+        class="no-border dark mat-elevation-z0">
+        <mat-expansion-panel-header [collapsedHeight]="'48px'" [expandedHeight]="'48px'">
+          <mat-panel-title class="white-text">
+            Role Management
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a (click)="selectedMenu('app/roleManagement/roles')" [ngClass]="{'active':isActive('app/roleManagement/roles')}"
+           [routerLink]="['/', 'app', 'roleManagement', 'roles']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Roles</a>
+        <a (click)="selectedMenu('app/roleManagement/rolePermissions')" [ngClass]="{'active':isActive('app/roleManagement/rolePermissions')}"
+           [routerLink]="['/', 'app', 'roleManagement', 'rolePermissions']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Role Permission</a>
+        <a (click)="selectedMenu('app/roleManagement/moduleAndOperations')" [ngClass]="{'active':isActive('app/roleManagement/moduleAndOperations')}"
+           [routerLink]="['/', 'app', 'roleManagement', 'moduleAndOperations']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Module and Operation</a>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="selectedRoot('systemConfiguration')" [expanded]="isActiveRoot() === 'systemConfiguration'"
+                           class="no-border dark mat-elevation-z0">
+        <mat-expansion-panel-header [collapsedHeight]="'48px'" [expandedHeight]="'48px'">
+          <mat-panel-title class="white-text">
+            System Configuration
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a (click)="selectedMenu('app/systemConfiguration/configuration')" [ngClass]="{'active':isActive('app/systemConfiguration/configuration')}"
+           [routerLink]="['/', 'app', 'systemConfiguration', 'configuration']"
+           class="primary-text fs-14 fw-500"
+           mat-list-item>Configuration</a>
+      </mat-expansion-panel>-->
+
+    </mat-accordion>
+  </mat-nav-list>
+</div>
+

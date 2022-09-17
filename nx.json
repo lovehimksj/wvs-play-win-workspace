@@ -43,6 +43,19 @@
     },
     "backend": {
       "tags": []
+    },
+    "data-access-layer": {
+      "tags": []
+    },
+    "data-access-store": {
+      "tags": []
+    },
+    "feature-player-master": {
+      "tags": [],
+      "npmScope":"wvs-play-win-workspace"
+    },
+    "feature-tournament-master": {
+      "tags": []
     }
   }
 }

@@ -1,0 +1,21 @@
+{
+  "loginPage": {
+    "welcomeMessage": "Welcome to WVS Logistic Platform!",
+    "loginForm": {
+      "title": "Login to to your account",
+      "userName": "User Name",
+      "password": "Password",
+      "remember": "Remember Me",
+      "forgotPassword": "Forgot Password?",
+      "captcha": "Captcha",
+      "login": "Login"
+    }
+  },
+  "dashboardPage": {
+    "title": "Dashboard"
+  },
+  "version": "1.0.0",
+  "dependencies": {
+
+  }
+}

@@ -9,6 +9,8 @@ import { InputFieldValidation } from '../constant/input-field-validation.contant
 export class LoginControl {
   captchaCode = '';
   loginForm: FormGroup;
+  isEmailRequired = false;
+  isPasswordRequired = false;
   isCaptchaRequired = false;
   isForgotPassword = false;
   isRememberMe = false;
@@ -20,12 +22,18 @@ export class LoginControl {
 
   generateForm () {
     this.loginForm = this.fb.group ({
-      userName: new FormControl ('', [Validators.required, Validators.maxLength (InputFieldValidation.USER_NAME_MAX_LENGTH)]),
-      password: new FormControl ('', [Validators.required, Validators.maxLength (InputFieldValidation.USER_NAME_MAX_LENGTH)]),
+      userName: new FormControl ('', [Validators.maxLength (InputFieldValidation.USER_NAME_MAX_LENGTH)]),
+      password: new FormControl ('', [Validators.maxLength (InputFieldValidation.USER_NAME_MAX_LENGTH)]),
       captcha: new FormControl ('')
     });
     if (this.isCaptchaRequired) {
       this.loginForm.controls['captcha'].setValidators (Validators.required);
+    }
+    if(this.isEmailRequired) {
+      this.loginForm.controls['userName'].setValidators (Validators.required);
+    }
+    if(this.isPasswordRequired) {
+      this.loginForm.controls['password'].setValidators (Validators.required);
     }
   }
 

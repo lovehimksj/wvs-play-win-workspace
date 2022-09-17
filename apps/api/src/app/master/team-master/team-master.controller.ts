@@ -103,7 +103,7 @@ export class TeamMasterController {
     console.log (JSON.stringify (file));
     const result = await this.teamMasterService.saveTeam (teamDto, file.filename);
     Logger.log (JSON.stringify (result));
-    const successResponseModel: SuccessResponseModel<Array<CouncilMaster>> = new SuccessResponseModel<Array<CouncilMaster>> (result, HttpStatus.OK, 'Game is fetched Successfully');
+    const successResponseModel: SuccessResponseModel<TeamMasterDto> = new SuccessResponseModel<TeamMasterDto> (result, HttpStatus.OK, 'Game is fetched Successfully');
     res.status (HttpStatus.OK).send (successResponseModel);
   }
 
@@ -128,7 +128,7 @@ export class TeamMasterController {
     console.log (JSON.stringify (file));
     const result = await this.teamMasterService.updateTeam (teamDto, file.filename, teamId);
     Logger.log (JSON.stringify (result));
-    const successResponseModel: SuccessResponseModel<Array<CouncilMaster>> = new SuccessResponseModel<Array<CouncilMaster>> (result, HttpStatus.OK, 'Game is fetched Successfully');
+    const successResponseModel: SuccessResponseModel<TeamMasterDto> = new SuccessResponseModel<TeamMasterDto> (result, HttpStatus.OK, 'Game is fetched Successfully');
     res.status (HttpStatus.OK).send (successResponseModel);
   }
 

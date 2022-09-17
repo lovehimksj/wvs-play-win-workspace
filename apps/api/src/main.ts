@@ -8,14 +8,19 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
-
+import { AppLoggerService } from './app/app-logger.service';
+import * as requestIp from 'request-ip';
+import { ErrorFilter } from './app/errors.filter';
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { logger: console});
   const globalPrefix = 'api';
+  app.use(requestIp.mw());
   app.setGlobalPrefix(globalPrefix);
+  app.useGlobalFilters(new ErrorFilter())
   app.useGlobalPipes(new ValidationPipe());
+  app.useLogger(app.get(AppLoggerService));
   const options = new DocumentBuilder()
-    .setTitle('Virtual-11 REST API Documents')
+    .setTitle('Virtual-11 REST API Documents')  
     .addServer('', 'play and win')
     .setDescription('Virtual-11 API reference for developers')
     .setVersion('1.0')

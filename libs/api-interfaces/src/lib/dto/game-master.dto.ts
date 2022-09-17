@@ -14,5 +14,10 @@ export class GameMasterDto {
   gameDescription: string;
   @IsNotEmpty ({ message: 'Game Name is required' })
   @ApiProperty ({ required: true })
+  status: number;
+  createdOn: Date;
+  modifiedOn: Date;
+  createdBy: string;
+  modifiedBy: string;
   gameName: string;
 }

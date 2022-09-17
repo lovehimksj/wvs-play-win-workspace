@@ -1,5 +1,18 @@
 export interface Authentication {
   email: string;
   password: string;
-  rememberMe: boolean;
+}
+
+export interface UserAuthenticationModel {
+  firstName?: string;
+  lastName?: string;
+  userId?: string;
+  email?: string;
+  avatar?: string;
+  mobile?: string;
+  expireOn?: string;
+  createdOn?: string;
+  token?:string;
+  validity?: number;
+  lastLoginTime?: Date;
 }
