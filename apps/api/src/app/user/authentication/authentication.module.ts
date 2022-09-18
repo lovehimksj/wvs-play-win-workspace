@@ -3,7 +3,7 @@ import {
   Wallet,
   Users,
 } from '@wvs-play-win-workspace/api-interfaces';
-import { HttpModule, Injectable, Module } from '@nestjs/common';
+import { Injectable, Module } from '@nestjs/common';
 import {
   AuthenticationController,
   JwtAuthGuard,
@@ -42,7 +42,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       signOptions: { expiresIn: '360000s' },
     }),
     PassportModule.register({ defaultStrategy: 'jwt', session: true }),
-    HttpModule,
   ],
   controllers: [AuthenticationController],
   providers: [

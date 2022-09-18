@@ -37,7 +37,10 @@
         "serve": {
           "builder": "@nrwl/node:webpack",
           "options": {
-            "buildTarget": "api:build"
+            "buildTarget": "api:build",
+            "main": "apps/api/src/main.ts",
+            "outputPath": "dist/apps/api",
+            "tsConfig": "apps/api/tsconfig.app.json"
           }
         },
         "test": {
@@ -380,6 +383,7 @@
     }
   },
   "cli": {
-    "analytics": "3e3afdc4-2df0-4123-82e2-40826bad6b05"
+    "analytics": "3e3afdc4-2df0-4123-82e2-40826bad6b05",
+    "defaultCollection": "@ngxs/schematics"
   }
 }

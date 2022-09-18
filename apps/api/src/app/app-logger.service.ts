@@ -9,12 +9,11 @@ const appLogger = getLogger('app');
 @Injectable()
 export class AppLoggerService extends Logger {
   setContext(context: string) {
-    super.setContext(context);
+    super.context = context;
   }
-  constructor(context: string, isTimestampEnabled: boolean) {
-    super(context, isTimestampEnabled);
+  constructor() {
+    super();
   }
-
   warn(message: any, context?: string) {
     // super.log(message, context);
     appLogger.info(message, context, true);

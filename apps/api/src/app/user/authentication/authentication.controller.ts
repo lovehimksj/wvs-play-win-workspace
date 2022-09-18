@@ -2,7 +2,6 @@ import {
   Body,
   Controller,
   Get,
-  HttpService,
   HttpStatus,
   Injectable,
   Logger,
@@ -26,11 +25,10 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiImplicitFile } from '@nestjs/swagger/dist/decorators/api-implicit-file.decorator';
 import { Response } from 'express';
 import { diskStorage } from 'multer';
-import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { AuthenticationService } from './authentication.service';
 import { AuthGuard } from '@nestjs/passport';
 import { AppLoggerService } from '../../app-logger.service';
-import * as sms from 'way2sms';
 @Injectable()
 export class JwtAuthGuard extends AuthGuard('jwt') {}
 
