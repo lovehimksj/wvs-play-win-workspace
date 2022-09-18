@@ -7,13 +7,13 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty } from 'class-validator';
 
 export class GameMasterDto {
-  @ApiProperty ({ readOnly: true, required: false })
+  @ApiProperty({ readOnly: true, required: false })
   gameId: number;
-  @IsNotEmpty ({ message: 'Game Description is required' })
-  @ApiProperty ({ required: true })
+  @IsNotEmpty({ message: 'Game Description is required' })
+  @ApiProperty({ required: true })
   gameDescription: string;
-  @IsNotEmpty ({ message: 'Game Name is required' })
-  @ApiProperty ({ required: true })
+  @IsNotEmpty({ message: 'Game Name is required' })
+  @ApiProperty({ required: true })
   status: number;
   createdOn: Date;
   modifiedOn: Date;

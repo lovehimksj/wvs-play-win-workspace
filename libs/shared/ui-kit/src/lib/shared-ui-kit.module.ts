@@ -10,10 +10,30 @@ import { HeaderToolbarComponent } from './widgets/header-toolbar/header-toolbar.
 import { DataTableComponent } from './pages/data-table/data-table.component';
 import { ModelPopUpComponent } from './pages/model-pop-up/model-pop-up.component';
 
-@NgModule ({
-  imports: [CommonModule, MaterialModules, FormsModule, ReactiveFormsModule, TranslateModule.forChild (), RouterModule],
-  declarations: [LoginComponent, SideNavComponent, HeaderToolbarComponent, DataTableComponent, ModelPopUpComponent],
-  exports: [FormsModule, ReactiveFormsModule, MaterialModules, LoginComponent, SideNavComponent, HeaderToolbarComponent, DataTableComponent]
+@NgModule({
+  imports: [
+    CommonModule,
+    MaterialModules,
+    FormsModule,
+    ReactiveFormsModule,
+    TranslateModule.forChild(),
+    RouterModule,
+  ],
+  declarations: [
+    LoginComponent,
+    SideNavComponent,
+    HeaderToolbarComponent,
+    DataTableComponent,
+    ModelPopUpComponent,
+  ],
+  exports: [
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModules,
+    LoginComponent,
+    SideNavComponent,
+    HeaderToolbarComponent,
+    DataTableComponent,
+  ],
 })
-export class SharedUiKitModule {
-}
+export class SharedUiKitModule {}

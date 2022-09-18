@@ -7,19 +7,18 @@ describe('Master store', () => {
   let store: Store;
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-    imports: [NgxsModule.forRoot([MasterState])],
-    teardown: { destroyAfterEach: false }
-}).compileComponents();
+      imports: [NgxsModule.forRoot([MasterState])],
+      teardown: { destroyAfterEach: false },
+    }).compileComponents();
     store = TestBed.get(Store);
   }));
 
   it('should create an action and add an item', () => {
     const expected: MasterStateModel = {
-      items: ['item-1']
+      items: ['item-1'],
     };
     store.dispatch(new MasterAction('item-1'));
     const actual = store.selectSnapshot(MasterState.getState);
     expect(actual).toEqual(expected);
   });
-
 });

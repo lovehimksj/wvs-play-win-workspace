@@ -1,3 +1,3 @@
 export const InputFieldValidation = {
-  USER_NAME_MAX_LENGTH : 200,
-}
+  USER_NAME_MAX_LENGTH: 200,
+};

@@ -9,7 +9,9 @@ describe('TournamentMaster Controller', () => {
       controllers: [TournamentMasterController],
     }).compile();
 
-    controller = module.get<TournamentMasterController>(TournamentMasterController);
+    controller = module.get<TournamentMasterController>(
+      TournamentMasterController
+    );
   });
 
   it('should be defined', () => {

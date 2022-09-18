@@ -6,10 +6,17 @@ import { TeamMasterModule } from './team-master/team-master.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { PlayerMasterModule } from './player-master/player-master.module';
 @Module({
-  imports: [MulterModule.register({
-    dest: './files',
-  }), GameMasterModule, CouncilsMasterModule, TournamentMasterModule, TeamMasterModule, PlayerMasterModule],
+  imports: [
+    MulterModule.register({
+      dest: './files',
+    }),
+    GameMasterModule,
+    CouncilsMasterModule,
+    TournamentMasterModule,
+    TeamMasterModule,
+    PlayerMasterModule,
+  ],
   controllers: [],
-  providers: []
+  providers: [],
 })
 export class MasterModule {}

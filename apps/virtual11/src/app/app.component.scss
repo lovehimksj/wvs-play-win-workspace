@@ -1,35 +1,35 @@
 .timepay-splash {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #193a58;
-    z-index: 99999;
-    pointer-events: none;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #193a58;
+  z-index: 99999;
+  pointer-events: none;
 }
 .splash-center {
-    display: block;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .timepay-splash .logo {
-    width: 226px;
-    margin: 0 auto;
+  width: 226px;
+  margin: 0 auto;
 }
 .timepay-splash .spinner-wrapper {
-    display: flex;
-    position: relative;
-    width: 100%;
-    min-height: 100px;
-    height: 100px;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
 }
 .timepay-splash .spinner-wrapper .spinner {
-    display: flex;
-    animation: outer-rotate 2.91667s linear infinite;
+  display: flex;
+  animation: outer-rotate 2.91667s linear infinite;
 }

@@ -15,18 +15,10 @@ import { MasterState } from './store/master/master.state';
 @NgModule({
   imports: [
     CommonModule,
-      NgxsLoggerPluginModule.forRoot({ logger: console, collapsed: false }),
-      NgxsModule.forRoot([UserState, MasterState], ngxsConfig),
+    NgxsLoggerPluginModule.forRoot({ logger: console, collapsed: false }),
+    NgxsModule.forRoot([UserState, MasterState], ngxsConfig),
   ],
-  exports: [
-    NgxsLoggerPluginModule,
-    NgxsReduxDevtoolsPluginModule,
-    NgxsModule
-  ],
-  providers: []
+  exports: [NgxsLoggerPluginModule, NgxsReduxDevtoolsPluginModule, NgxsModule],
+  providers: [],
 })
 export class NgxsStoreModule {}
-
-
-
-

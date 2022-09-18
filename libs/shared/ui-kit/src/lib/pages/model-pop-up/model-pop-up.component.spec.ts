@@ -8,10 +8,9 @@ describe('ModelPopUpComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-    declarations: [ModelPopUpComponent],
-    teardown: { destroyAfterEach: false }
-})
-    .compileComponents();
+      declarations: [ModelPopUpComponent],
+      teardown: { destroyAfterEach: false },
+    }).compileComponents();
   }));
 
   beforeEach(() => {

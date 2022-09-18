@@ -50,7 +50,7 @@
 }
 
 .row:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
@@ -62,7 +62,8 @@
   min-height: 1px;
 }
 
-.row .col[class*="push-"], .row .col[class*="pull-"] {
+.row .col[class*='push-'],
+.row .col[class*='pull-'] {
   position: relative;
 }
 

@@ -7,8 +7,11 @@ import { GameMasterService } from './game-master.service';
 import { GameMasterHelperService } from './game-master-helper.service';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([GameMaster])],
-    controllers: [GameMasterController],
-    providers: [{provide: GameMasterService, useClass:GameMasterImplService}, GameMasterHelperService]
-  })
+  imports: [TypeOrmModule.forFeature([GameMaster])],
+  controllers: [GameMasterController],
+  providers: [
+    { provide: GameMasterService, useClass: GameMasterImplService },
+    GameMasterHelperService,
+  ],
+})
 export class GameMasterModule {}

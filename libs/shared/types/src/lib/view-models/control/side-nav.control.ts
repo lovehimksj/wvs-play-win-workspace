@@ -3,7 +3,7 @@ import { UserAuthDataModel } from '../../data-model/models/auth-data-model';
 export class SideNavControl {
   userDetails: UserAuthDataModel;
 
-  constructor () {
+  constructor() {
     this.userDetails = new UserAuthDataModel();
   }
 }

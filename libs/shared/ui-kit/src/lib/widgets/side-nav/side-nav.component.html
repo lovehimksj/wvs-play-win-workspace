@@ -1,7 +1,7 @@
 <mat-toolbar class="mat-elevation-z8 primary" color="primary">
   <div class="navbar-top primary">
     <div class="logo">
-      <img [src]="'assets/images/logos/car_dark_blue.png'" class="logo-icon">
+      <img [src]="'assets/images/logos/car_dark_blue.png'" class="logo-icon" />
       <span class="logo-text fs-18 fw-500 white-text">WVS Logistic</span>
     </div>
   </div>
@@ -9,47 +9,90 @@
 <!--        <perfect-scrollbar class="dark sideNavScroll">-->
 <div class="navbar-scroll-container dark scroll-window">
   <div class="user-detail primary">
-    <div class="dark-text fs-16 fw-500">{{entity.userDetails.firstName}} {{entity.userDetails.lastName}}</div>
-    <div class="white-text fs-14 m-t-xxs fw-500">{{entity.userDetails.email}}</div>
-    <div class="white-text fs-12 m-t-xxs fw-500">Last Login
-      : {{entity.userDetails.lastLoginTime | date : 'short'}}</div>
+    <div class="dark-text fs-16 fw-500">
+      {{ entity.userDetails.firstName }} {{ entity.userDetails.lastName }}
+    </div>
+    <div class="white-text fs-14 m-t-xxs fw-500">
+      {{ entity.userDetails.email }}
+    </div>
+    <div class="white-text fs-12 m-t-xxs fw-500">
+      Last Login : {{ entity.userDetails.lastLoginTime | date: 'short' }}
+    </div>
   </div>
   <div class="avatar-container dark">
-    <span class="avatar dark primary-text fw-300 fs-32 flex-v-h-center">{{entity.userDetails.firstName?.charAt(0) | uppercase}}{{entity.userDetails.lastName?.charAt(0) | uppercase}}</span>
+    <span class="avatar dark primary-text fw-300 fs-32 flex-v-h-center"
+      >{{ entity.userDetails.firstName?.charAt(0) | uppercase
+      }}{{ entity.userDetails.lastName?.charAt(0) | uppercase }}</span
+    >
   </div>
   <mat-nav-list class="navbar-content wvs-side-nav">
     <mat-accordion>
-      <a (click)="selectedMenu('app/dashboard/playwin')" [ngClass]="{'active':isActive('app/dashboard/playwin')}"
-         [routerLink]="['/', 'app', 'dashboard', 'playwin']"
-         class="white-text fs-14 fw-500"
-         mat-list-item
-      >Dashboard</a>
-      <mat-expansion-panel hideToggle (opened)="selectedRoot('masterManagement')" [expanded]="isActiveRoot() === 'masterManagement'"
-                           class="dark mat-elevation-z0">
-        <mat-expansion-panel-header [collapsedHeight]="'40px'" [expandedHeight]="'40px'" class="active">
+      <a
+        (click)="selectedMenu('app/dashboard/playwin')"
+        [ngClass]="{ active: isActive('app/dashboard/playwin') }"
+        [routerLink]="['/', 'app', 'dashboard', 'playwin']"
+        class="white-text fs-14 fw-500"
+        mat-list-item
+        >Dashboard</a
+      >
+      <mat-expansion-panel
+        hideToggle
+        (opened)="selectedRoot('masterManagement')"
+        [expanded]="isActiveRoot() === 'masterManagement'"
+        class="dark mat-elevation-z0"
+      >
+        <mat-expansion-panel-header
+          [collapsedHeight]="'40px'"
+          [expandedHeight]="'40px'"
+          class="active"
+        >
           <mat-panel-title class="white-text">
             Master Management
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <a [ngClass]="{'active':isActive('app/masterManagement/parking')}" [routerLink]="['/', 'app', 'masterManagement', 'game']"
-           class="sub-manu-active primary-text fs-14 fw-500"
-           mat-list-item>Games</a>
-        <a [ngClass]="{'active':isActive('app/parkingManagement/generateQR')}" [routerLink]="['/', 'app', 'parkingManagement', 'QRCreation']"
-           class="primary-text fs-14 fw-500"
-           mat-list-item>Councils</a>
+        <a
+          [ngClass]="{ active: isActive('app/masterManagement/parking') }"
+          [routerLink]="['/', 'app', 'masterManagement', 'game']"
+          class="sub-manu-active primary-text fs-14 fw-500"
+          mat-list-item
+          >Games</a
+        >
+        <a
+          [ngClass]="{ active: isActive('app/parkingManagement/generateQR') }"
+          [routerLink]="['/', 'app', 'parkingManagement', 'QRCreation']"
+          class="primary-text fs-14 fw-500"
+          mat-list-item
+          >Councils</a
+        >
 
-        <a [ngClass]="{'active':isActive('app/parkingManagement/manualExit')}" [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
-           class="primary-text fs-14 fw-500"
-           mat-list-item>Tournaments</a>
-        <a [ngClass]="{'active':isActive('app/parkingManagement/manualExit')}" [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
-           class="primary-text fs-14 fw-500"
-           mat-list-item>Matchs</a>
-        <a [ngClass]="{'active':isActive('app/parkingManagement/manualExit')}" [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
-           class="primary-text fs-14 fw-500"
-           mat-list-item>Teams</a>
-        <a [ngClass]="{'active':isActive('app/parkingManagement/manualExit')}" [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
-           class="primary-text fs-14 fw-500"
-           mat-list-item>Players</a>
+        <a
+          [ngClass]="{ active: isActive('app/parkingManagement/manualExit') }"
+          [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
+          class="primary-text fs-14 fw-500"
+          mat-list-item
+          >Tournaments</a
+        >
+        <a
+          [ngClass]="{ active: isActive('app/parkingManagement/manualExit') }"
+          [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
+          class="primary-text fs-14 fw-500"
+          mat-list-item
+          >Matchs</a
+        >
+        <a
+          [ngClass]="{ active: isActive('app/parkingManagement/manualExit') }"
+          [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
+          class="primary-text fs-14 fw-500"
+          mat-list-item
+          >Teams</a
+        >
+        <a
+          [ngClass]="{ active: isActive('app/parkingManagement/manualExit') }"
+          [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
+          class="primary-text fs-14 fw-500"
+          mat-list-item
+          >Players</a
+        >
       </mat-expansion-panel>
 
       <!--<mat-expansion-panel (opened)="selectedRoot('vendorManagement')" [expanded]="isActiveRoot() === 'vendorManagement'"
@@ -176,8 +219,6 @@
            class="primary-text fs-14 fw-500"
            mat-list-item>Configuration</a>
       </mat-expansion-panel>-->
-
     </mat-accordion>
   </mat-nav-list>
 </div>
-

@@ -8,10 +8,9 @@ describe('LoginPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-    declarations: [LoginPageComponent],
-    teardown: { destroyAfterEach: false }
-})
-    .compileComponents();
+      declarations: [LoginPageComponent],
+      teardown: { destroyAfterEach: false },
+    }).compileComponents();
   }));
 
   beforeEach(() => {

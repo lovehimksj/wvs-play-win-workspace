@@ -9,20 +9,18 @@ export interface Tile {
 @Component({
   selector: 'wvs-model-pop-up',
   templateUrl: './model-pop-up.component.html',
-  styleUrls: ['./model-pop-up.component.scss']
+  styleUrls: ['./model-pop-up.component.scss'],
 })
 export class ModelPopUpComponent implements OnInit {
   tiles: Tile[] = [
-    {text: 'One', cols: 1, rows: 1, type: 'text'},
-    {text: 'Two', cols: 1, rows: 1, type: 'radio'},
-    {text: 'Three', cols: 1, rows: 1, type: 'checkbox'},
-    {text: 'Four', cols: 1, rows: 1, type: 'dropdown'},
-    {text: 'five', cols: 1, rows: 1, type: 'date'},
-    {text: 'six', cols: 2, rows: 1, type: 'textarea'},
+    { text: 'One', cols: 1, rows: 1, type: 'text' },
+    { text: 'Two', cols: 1, rows: 1, type: 'radio' },
+    { text: 'Three', cols: 1, rows: 1, type: 'checkbox' },
+    { text: 'Four', cols: 1, rows: 1, type: 'dropdown' },
+    { text: 'five', cols: 1, rows: 1, type: 'date' },
+    { text: 'six', cols: 2, rows: 1, type: 'textarea' },
   ];
-  constructor(public dialogRef: MatDialogRef<ModelPopUpComponent>) { }
+  constructor(public dialogRef: MatDialogRef<ModelPopUpComponent>) {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

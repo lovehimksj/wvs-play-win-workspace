@@ -1,6 +1,10 @@
 import { patch } from '@ngxs/store/operators';
 import { State, Action, Selector, StateContext } from '@ngxs/store';
-import { ApiResponseModel, PlayerServerModel, PlayerService } from '@wvs-play-win-workspace/backend';
+import {
+  ApiResponseModel,
+  PlayerServerModel,
+  PlayerService,
+} from '@wvs-play-win-workspace/backend';
 import { SetPlayerList } from './master.actions';
 
 export interface MasterStateModel {
@@ -10,23 +14,28 @@ export interface MasterStateModel {
 @State<MasterStateModel>({
   name: 'master',
   defaults: {
-    playerList: []
-  }
+    playerList: [],
+  },
 })
 export class MasterState {
-constructor() {}
+  constructor() {}
   @Selector()
-  public static getPlayerList(state: MasterStateModel): Array<PlayerServerModel> {
+  public static getPlayerList(
+    state: MasterStateModel
+  ): Array<PlayerServerModel> {
     return state.playerList;
   }
 
   @Action(SetPlayerList)
-  public getAllPlayer(ctx: StateContext<MasterStateModel>, {playerList}: SetPlayerList) {
+  public getAllPlayer(
+    ctx: StateContext<MasterStateModel>,
+    { playerList }: SetPlayerList
+  ) {
     const stateModel = ctx.getState();
     stateModel.playerList = [...playerList];
     ctx.setState(
       patch({
-        playerList : [...stateModel.playerList]
+        playerList: [...stateModel.playerList],
       })
     );
   }

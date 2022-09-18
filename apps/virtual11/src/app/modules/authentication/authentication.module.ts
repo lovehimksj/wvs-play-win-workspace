@@ -5,16 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedUiKitModule } from '@wvs-play-win-workspace/shared/ui-kit';
 
 const route: Routes = [
-  {path: 'login', component: LoginPageComponent},
-  {path:'', redirectTo:'login', pathMatch: 'full'}
+  { path: 'login', component: LoginPageComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
 
 @NgModule({
   declarations: [LoginPageComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild (route),
-    SharedUiKitModule
-  ]
+  imports: [CommonModule, RouterModule.forChild(route), SharedUiKitModule],
 })
-export class AuthenticationModule { }
+export class AuthenticationModule {}

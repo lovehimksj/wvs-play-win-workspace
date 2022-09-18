@@ -4,6 +4,6 @@ import { CaptchaService } from './captcha/captcha.service';
 
 @NgModule({
   imports: [CommonModule],
-  providers: [CaptchaService]
+  providers: [CaptchaService],
 })
 export class SharedSharedUtilModule {}

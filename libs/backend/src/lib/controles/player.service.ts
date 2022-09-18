@@ -5,13 +5,14 @@ import { PlayerServerModel } from '../model/player';
 import { ApiResponseModel } from '../model/api-response-model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PlayerService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAll(): Observable<ApiResponseModel<Array<PlayerServerModel>>> {
-    return this.http.get<ApiResponseModel<Array<PlayerServerModel>>>(`/api/player`)
+    return this.http.get<ApiResponseModel<Array<PlayerServerModel>>>(
+      `/api/player`
+    );
   }
 }

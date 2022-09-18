@@ -6,12 +6,12 @@ import {
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
-  HttpResponse
+  HttpResponse,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HttpInterceptorService implements HttpInterceptor {
   intercept(
@@ -22,12 +22,13 @@ export class HttpInterceptorService implements HttpInterceptor {
       headers: req.headers.set(
         'Authorization',
         `Bearer ${sessionStorage.getItem('user_token')}`
-      )
+      ),
     });
     // return next.handle(authReq);
     return next.handle(authReq).pipe(
       filter(
-        event => event instanceof HttpResponse && !authReq.url.includes('/app/')
+        (event) =>
+          event instanceof HttpResponse && !authReq.url.includes('/app/')
       ),
       tap(
         (event: HttpEvent<any>) => {

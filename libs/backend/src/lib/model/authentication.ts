@@ -12,7 +12,7 @@ export interface UserAuthenticationModel {
   mobile?: string;
   expireOn?: string;
   createdOn?: string;
-  token?:string;
+  token?: string;
   validity?: number;
   lastLoginTime?: Date;
 }

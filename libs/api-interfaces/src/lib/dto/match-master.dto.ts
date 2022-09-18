@@ -10,6 +10,5 @@ export class MatchMasterDto {
   teamTwoId: number | null;
   updateDate: Date | null;
   venue: string | null;
-  constructor () {
-  }
+  constructor() {}
 }

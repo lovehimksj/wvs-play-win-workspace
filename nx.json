@@ -18,44 +18,21 @@
       }
     }
   },
-  "projects": {
-    "virtual11": {
-      "tags": []
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
+  },
+  "cli": {
+    "analytics": "1ef19674-8e3d-44a7-912e-c15fb5527690",
+    "schematicCollections": ["@ngxs/schematics"]
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
     },
-    "virtual11-e2e": {
-      "tags": [],
-      "implicitDependencies": ["virtual11"]
-    },
-    "api": {
-      "tags": []
-    },
-    "api-interfaces": {
-      "tags": []
-    },
-    "shared-ui-kit": {
-      "tags": []
-    },
-    "shared-types": {
-      "tags": []
-    },
-    "shared-shared-util": {
-      "tags": []
-    },
-    "backend": {
-      "tags": []
-    },
-    "data-access-layer": {
-      "tags": []
-    },
-    "data-access-store": {
-      "tags": []
-    },
-    "feature-player-master": {
-      "tags": [],
-      "npmScope":"wvs-play-win-workspace"
-    },
-    "feature-tournament-master": {
-      "tags": []
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
     }
   }
 }

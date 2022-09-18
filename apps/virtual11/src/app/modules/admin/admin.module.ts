@@ -5,21 +5,24 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedUiKitModule } from '@wvs-play-win-workspace/shared/ui-kit';
 
 const route: Routes = [
-  { path: 'dashboard', component: DashboardComponent, 
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
     children: [
-      { path: 'players', loadChildren: () => import('@wvs-play-win-workspace/feature/player-master').then(m => m.PlayerMasterModule)}
-    ]
+      {
+        path: 'players',
+        loadChildren: () =>
+          import('@wvs-play-win-workspace/feature/player-master').then(
+            (m) => m.PlayerMasterModule
+          ),
+      },
+    ],
   },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 ];
 
-@NgModule ({
+@NgModule({
   declarations: [DashboardComponent],
-  imports: [
-    CommonModule,
-    SharedUiKitModule,
-    RouterModule.forChild(route)
-  ]
+  imports: [CommonModule, SharedUiKitModule, RouterModule.forChild(route)],
 })
-export class AdminModule {
-}
+export class AdminModule {}

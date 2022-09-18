@@ -11,13 +11,11 @@ export interface UserStateModel {
 @State<UserStateModel>({
   name: 'user',
   defaults: {
-    userDetails: null
-  }
+    userDetails: null,
+  },
 })
-
 @Injectable()
 export class UserState {
-
   @Selector()
   public static getUserState(state: UserStateModel) {
     return state.userDetails;
@@ -29,7 +27,7 @@ export class UserState {
     stateModel.userDetails = payload;
     ctx.setState(
       patch({
-        userDetails : {...stateModel.userDetails}
+        userDetails: { ...stateModel.userDetails },
       })
     );
   }

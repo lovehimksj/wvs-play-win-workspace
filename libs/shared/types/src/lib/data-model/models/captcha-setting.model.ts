@@ -4,12 +4,12 @@
  */
 
 export class CaptchaSettingModel {
-    text: string;
-    randomText: boolean;
-    randomColours: boolean;
-    width: number;
-    height: number;
-    colour1: string;
-    colour2: string;
-    font: string;
+  text: string;
+  randomText: boolean;
+  randomColours: boolean;
+  width: number;
+  height: number;
+  colour1: string;
+  colour2: string;
+  font: string;
 }

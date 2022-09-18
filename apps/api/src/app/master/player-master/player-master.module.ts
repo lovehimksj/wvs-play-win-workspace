@@ -8,8 +8,15 @@ import { UtilService } from '../../util/util.service';
 import { AppLoggerService } from '../../app-logger.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([PlayerMaster]), CacheModule.register ({ ttl: 100000 })],
+  imports: [
+    TypeOrmModule.forFeature([PlayerMaster]),
+    CacheModule.register({ ttl: 100000 }),
+  ],
   controllers: [PlayerMasterController],
-  providers: [{provide:PlayerMasterService, useClass:PlayerMasterImplService}, UtilService, AppLoggerService]
+  providers: [
+    { provide: PlayerMasterService, useClass: PlayerMasterImplService },
+    UtilService,
+    AppLoggerService,
+  ],
 })
 export class PlayerMasterModule {}

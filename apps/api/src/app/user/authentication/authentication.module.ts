@@ -1,6 +1,13 @@
-import { UserTokens, Wallet, Users } from '@wvs-play-win-workspace/api-interfaces';
+import {
+  UserTokens,
+  Wallet,
+  Users,
+} from '@wvs-play-win-workspace/api-interfaces';
 import { HttpModule, Injectable, Module } from '@nestjs/common';
-import { AuthenticationController, JwtAuthGuard } from './authentication.controller';
+import {
+  AuthenticationController,
+  JwtAuthGuard,
+} from './authentication.controller';
 import { AuthenticationService } from './authentication.service';
 import { AuthenticationImplService } from './authentication-impl.service';
 import { MulterModule } from '@nestjs/platform-express';
@@ -25,14 +32,25 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 }
 
 @Module({
-  imports: [MulterModule.register({
-    dest: './files',
-  }), TypeOrmModule.forFeature([Users, Wallet, UserTokens]), JwtModule.register({
-    secret: 'secret12356789', signOptions: { expiresIn: '360000s' },
-  }), PassportModule.register({ defaultStrategy: 'jwt', session:true }), HttpModule],
+  imports: [
+    MulterModule.register({
+      dest: './files',
+    }),
+    TypeOrmModule.forFeature([Users, Wallet, UserTokens]),
+    JwtModule.register({
+      secret: 'secret12356789',
+      signOptions: { expiresIn: '360000s' },
+    }),
+    PassportModule.register({ defaultStrategy: 'jwt', session: true }),
+    HttpModule,
+  ],
   controllers: [AuthenticationController],
-  providers: [{provide:AuthenticationService, useClass:AuthenticationImplService}, UtilService, JwtStrategy, JwtAuthGuard, AppLoggerService]
+  providers: [
+    { provide: AuthenticationService, useClass: AuthenticationImplService },
+    UtilService,
+    JwtStrategy,
+    JwtAuthGuard,
+    AppLoggerService,
+  ],
 })
 export class AuthenticationModule {}
-
-

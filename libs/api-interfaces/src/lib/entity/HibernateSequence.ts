@@ -1,8 +1,8 @@
-import { Column, Entity } from "typeorm";
+import { Column, Entity } from 'typeorm';
 
-@Entity("hibernate_sequence")
+@Entity('hibernate_sequence')
 export default class HibernateSequence {
-  @Column("bigint", { name: "next_val", nullable: true })
+  @Column('bigint', { name: 'next_val', nullable: true })
   nextVal: string | null;
 
   constructor(init?: Partial<HibernateSequence>) {

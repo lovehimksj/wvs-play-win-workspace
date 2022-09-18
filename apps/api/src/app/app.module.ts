@@ -10,23 +10,31 @@ import { UserModule } from './user/user.module';
 import { FileMasterModule } from './master/file-master/file-master.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot ({
-    type: 'mysql',
-    host: 'localhost',
-    port: 3306,
-    username: 'root',
-    password: 'root',
-    database: 'playcricketwin',
-    autoLoadEntities: true,
-    entities: [],
-    synchronize: true
-  }), MasterModule, CacheModule.register ({ ttl: 100000 }), TypeOrmModule.forFeature ([SpecialityCodeMaster]), UserModule, FileMasterModule],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: 'root',
+      database: 'playcricketwin',
+      autoLoadEntities: true,
+      entities: [],
+      synchronize: true,
+    }),
+    MasterModule,
+    CacheModule.register({ ttl: 100000 }),
+    TypeOrmModule.forFeature([SpecialityCodeMaster]),
+    UserModule,
+    FileMasterModule,
+  ],
   controllers: [AppController],
-  providers: [{ provide: AppService, useClass: AppImplService }, {
-    provide: APP_INTERCEPTOR,
-    useClass: CacheInterceptor,
-  }]
+  providers: [
+    { provide: AppService, useClass: AppImplService },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: CacheInterceptor,
+    },
+  ],
 })
-export class AppModule {
-}
-
+export class AppModule {}

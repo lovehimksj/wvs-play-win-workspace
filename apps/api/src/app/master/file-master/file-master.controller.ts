@@ -9,7 +9,7 @@ export class FileMasterController {
   @ApiResponse({
     description: 'The record has been successfully created.',
     type: SuccessResponseModel,
-    status: HttpStatus.OK
+    status: HttpStatus.OK,
   })
   readFile(@Query('imageName') imageName: string, @Res() res) {
     return res.sendFile(imageName, { root: './files/' });

@@ -4,11 +4,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
  * @email animatorhimanshu.ksj@gmail.com
  */
 
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {LayoutModule} from '@angular/cdk/layout';
-import {FormsModule} from '@angular/forms';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { LayoutModule } from '@angular/cdk/layout';
+import { FormsModule } from '@angular/forms';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -38,7 +38,6 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-
 
 @NgModule({
   imports: [
@@ -76,10 +75,11 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     MatTooltipModule,
     MatTreeModule,
     MatBottomSheetModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   declarations: [],
-  exports: [CommonModule,
+  exports: [
+    CommonModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
@@ -113,7 +113,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     MatTreeModule,
     MatBottomSheetModule,
     MatSlideToggleModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
 })
 export class MaterialModules {}

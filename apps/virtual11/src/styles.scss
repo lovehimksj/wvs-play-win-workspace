@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-
 @import 'styles/style';
 
 html,
@@ -10,14 +9,14 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
   .main {
     padding: 0 16px;
   }
 }
 
 .login {
-  background-image: url("./assets/images/main-page-bg.jpg");
+  background-image: url('./assets/images/main-page-bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -45,7 +44,8 @@ body {
     max-width: 480px;
     border-radius: 28px;
     overflow: hidden;
-    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+      0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
 
     .search {
       width: 100%;
@@ -65,8 +65,6 @@ body {
     }
   }
 }
-
-
 
 .main {
   height: calc(100vh - 64px);

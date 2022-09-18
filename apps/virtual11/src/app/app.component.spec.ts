@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-    declarations: [AppComponent],
-    imports: [HttpClientModule],
-    teardown: { destroyAfterEach: false }
-}).compileComponents();
+      declarations: [AppComponent],
+      imports: [HttpClientModule],
+      teardown: { destroyAfterEach: false },
+    }).compileComponents();
   }));
 
   it('should create the app', () => {

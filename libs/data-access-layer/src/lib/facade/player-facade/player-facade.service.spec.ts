@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { PlayerFacadeService } from './player-facade.service';
 
-
 describe('PlayerFacadeServiceService', () => {
   let service: PlayerFacadeService;
 

@@ -1,6 +1,8 @@
 <mat-card class="card data-table">
   <mat-card-header class="data-table-card-header">
-    <mat-card-title class="dark-strip fs-16 fw-500 dark-text no-m">Available Complaint Details</mat-card-title>
+    <mat-card-title class="dark-strip fs-16 fw-500 dark-text no-m"
+      >Available Complaint Details</mat-card-title
+    >
     <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
   </mat-card-header>
 
@@ -9,54 +11,108 @@
       <mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="select" *ngIf="config.isSelectable">
           <mat-header-cell *matHeaderCellDef class="selectable-column">
-            <mat-checkbox *ngIf="config.isMultipleSelect" (change)="$event ? masterToggle() : null"
+            <mat-checkbox
+              *ngIf="config.isMultipleSelect"
+              (change)="$event ? masterToggle() : null"
               [checked]="selection.hasValue() && isAllSelected()"
-              [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+              [indeterminate]="selection.hasValue() && !isAllSelected()"
+              [aria-label]="checkboxLabel()"
+            >
             </mat-checkbox>
           </mat-header-cell>
           <mat-cell *matCellDef="let row" class="selectable-column">
-            <mat-radio-button *ngIf="!config.isMultipleSelect" (click)="$event.stopPropagation()"
-              (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)"
-              [aria-label]="checkboxLabel(row)">
+            <mat-radio-button
+              *ngIf="!config.isMultipleSelect"
+              (click)="$event.stopPropagation()"
+              (change)="$event ? selection.toggle(row) : null"
+              [checked]="selection.isSelected(row)"
+              [aria-label]="checkboxLabel(row)"
+            >
             </mat-radio-button>
-            <mat-checkbox *ngIf="config.isMultipleSelect" (click)="$event.stopPropagation()"
-              (change)="selectMe(row); $event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)"
-              [aria-label]="checkboxLabel(row)">
+            <mat-checkbox
+              *ngIf="config.isMultipleSelect"
+              (click)="$event.stopPropagation()"
+              (change)="selectMe(row); $event ? selection.toggle(row) : null"
+              [checked]="selection.isSelected(row)"
+              [aria-label]="checkboxLabel(row)"
+            >
             </mat-checkbox>
           </mat-cell>
           <mat-footer-cell *matFooterCellDef class="selectable-column">
-            <mat-checkbox *ngIf="config.isMultipleSelect" (change)="$event ? masterToggle() : null"
+            <mat-checkbox
+              *ngIf="config.isMultipleSelect"
+              (change)="$event ? masterToggle() : null"
               [checked]="selection.hasValue() && isAllSelected()"
-              [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+              [indeterminate]="selection.hasValue() && !isAllSelected()"
+              [aria-label]="checkboxLabel()"
+            >
             </mat-checkbox>
           </mat-footer-cell>
         </ng-container>
 
-        <ng-container [matColumnDef]="column.columnLabel"
-          *ngFor="let column of displayedColumnsConfig | slice: sliceCount">
-          <mat-header-cell class="{{column.cssClass}}" *matHeaderCellDef [mat-sort-header]=" column.isSorting ? null: column.columnLabel"
-            [disabled]="!column.isSorting">{{column.columnDescription}}</mat-header-cell>
-          <mat-cell class="{{column.cssClass}}" *matCellDef="let element">
-            <a *ngIf="!column.isImage && column.isLink" href="javascript:void(0)" (click)="clickCallBack($event, column.columnLabel, element[column.columnLabel])">{{element[column.columnLabel]}}</a>
-            <span *ngIf="!column.isImage && !column.isLink">{{element[column.columnLabel]}} </span>
-            <img class="avatar-cell" *ngIf="column.isImage" src="api/file/avatar?imageName={{element[column.columnLabel]}}" (error)="onImgError($event)">
+        <ng-container
+          [matColumnDef]="column.columnLabel"
+          *ngFor="let column of displayedColumnsConfig | slice: sliceCount"
+        >
+          <mat-header-cell
+            class="{{ column.cssClass }}"
+            *matHeaderCellDef
+            [mat-sort-header]="column.isSorting ? null : column.columnLabel"
+            [disabled]="!column.isSorting"
+            >{{ column.columnDescription }}</mat-header-cell
+          >
+          <mat-cell class="{{ column.cssClass }}" *matCellDef="let element">
+            <a
+              *ngIf="!column.isImage && column.isLink"
+              href="javascript:void(0)"
+              (click)="
+                clickCallBack(
+                  $event,
+                  column.columnLabel,
+                  element[column.columnLabel]
+                )
+              "
+              >{{ element[column.columnLabel] }}</a
+            >
+            <span *ngIf="!column.isImage && !column.isLink"
+              >{{ element[column.columnLabel] }}
+            </span>
+            <img
+              class="avatar-cell"
+              *ngIf="column.isImage"
+              src="api/file/avatar?imageName={{ element[column.columnLabel] }}"
+              (error)="onImgError($event)"
+            />
           </mat-cell>
           <ng-container *ngIf="config.isFooter">
-            <mat-footer-cell class="{{column.cssClass}}" *matFooterCellDef> {{column.columnDescription}} </mat-footer-cell>
+            <mat-footer-cell class="{{ column.cssClass }}" *matFooterCellDef>
+              {{ column.columnDescription }}
+            </mat-footer-cell>
           </ng-container>
         </ng-container>
 
-        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></mat-row>
+        <mat-header-row
+          *matHeaderRowDef="displayedColumns; sticky: true"
+        ></mat-header-row>
+        <mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          (click)="selection.toggle(row)"
+        ></mat-row>
         <ng-container *ngIf="config.isFooter">
-          <mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></mat-footer-row>
+          <mat-footer-row
+            *matFooterRowDef="displayedColumns; sticky: true"
+          ></mat-footer-row>
         </ng-container>
       </mat-table>
     </div>
   </mat-card-content>
   <ng-container *ngIf="config.isPagination">
-    <mat-paginator [length]="config.length" [pageSize]="config.maxPageSize" [pageSizeOptions]="config.pageSizeOptions"
-      (page)="pageEvent = $event">
+    <mat-paginator
+      [length]="config.length"
+      [pageSize]="config.maxPageSize"
+      [pageSizeOptions]="config.pageSizeOptions"
+      (page)="pageEvent = $event"
+    >
     </mat-paginator>
   </ng-container>
 </mat-card>

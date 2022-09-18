@@ -6,18 +6,17 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { configure, getLogger } from 'log4js';
 const appLogger = getLogger('app');
-@Injectable ()
+@Injectable()
 export class AppLoggerService extends Logger {
-  setContext (context: string) {
-    super.setContext (context);
+  setContext(context: string) {
+    super.setContext(context);
   }
-  constructor (context: string, isTimestampEnabled: boolean) {
-    super (context, isTimestampEnabled);
+  constructor(context: string, isTimestampEnabled: boolean) {
+    super(context, isTimestampEnabled);
   }
 
-  warn (message: any, context?: string) {
+  warn(message: any, context?: string) {
     // super.log(message, context);
     appLogger.info(message, context, true);
   }
 }
-

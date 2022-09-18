@@ -6,6 +6,6 @@ import { PlayerService } from './controles/player.service';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
-  providers: [AuthenticationService, PlayerService]
+  providers: [AuthenticationService, PlayerService],
 })
 export class BackendModule {}

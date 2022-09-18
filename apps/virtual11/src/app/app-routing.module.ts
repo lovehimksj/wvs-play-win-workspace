@@ -3,16 +3,24 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 const route: Routes = [
-  {path:':lang', loadChildren: () => import('./modules/authentication/authentication.module').then(m => m.AuthenticationModule)},
-  {path:':lang/admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)},
-  {path:'', redirectTo:':lang', pathMatch: 'full'}
+  {
+    path: ':lang',
+    loadChildren: () =>
+      import('./modules/authentication/authentication.module').then(
+        (m) => m.AuthenticationModule
+      ),
+  },
+  {
+    path: ':lang/admin',
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then((m) => m.AdminModule),
+  },
+  { path: '', redirectTo: ':lang', pathMatch: 'full' },
 ];
 
-@NgModule ({
+@NgModule({
   declarations: [],
-  imports: [CommonModule, RouterModule.forRoot (route)],
-  exports: [RouterModule]
+  imports: [CommonModule, RouterModule.forRoot(route)],
+  exports: [RouterModule],
 })
-
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

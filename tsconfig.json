@@ -20,15 +20,6 @@
       "@wvs-play-win-workspace/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
       ],
-      "@wvs-play-win-workspace/shared/ui-kit": [
-        "libs/shared/ui-kit/src/index.ts"
-      ],
-      "@wvs-play-win-workspace/shared/types": [
-        "libs/shared/types/src/index.ts"
-      ],
-      "@wvs-play-win-workspace/shared/shared-util": [
-        "libs/shared/shared-util/src/index.ts"
-      ],
       "@wvs-play-win-workspace/backend": ["libs/backend/src/index.ts"],
       "@wvs-play-win-workspace/data-access-layer": [
         "libs/data-access-layer/src/index.ts"
@@ -41,6 +32,15 @@
       ],
       "@wvs-play-win-workspace/feature/tournament-master": [
         "libs/feature/tournament-master/src/index.ts"
+      ],
+      "@wvs-play-win-workspace/shared/shared-util": [
+        "libs/shared/shared-util/src/index.ts"
+      ],
+      "@wvs-play-win-workspace/shared/types": [
+        "libs/shared/types/src/index.ts"
+      ],
+      "@wvs-play-win-workspace/shared/ui-kit": [
+        "libs/shared/ui-kit/src/index.ts"
       ]
     }
   },
