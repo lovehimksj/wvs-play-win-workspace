@@ -33,9 +33,9 @@ function AppLoaderFactory(appLoader: ApplicationLoaderService) {
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
     BrowserModule,
-    BrowserAnimationsModule,
     HttpClientModule,
     SharedUiKitModule,
     TranslateModule.forRoot({

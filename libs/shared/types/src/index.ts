@@ -7,3 +7,4 @@ export * from './lib/view-models/control/side-nav.control';
 export * from './lib/view-models/control/header.control';
 export * from './lib/view-models/control/data-table-config';
 export * from './lib/data-model/constant/table-column-constant';
+export * from './lib/view-models/control/player-master-page-control';

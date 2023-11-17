@@ -1,9 +1,8 @@
-import { FlexLayoutModule } from '@angular/flex-layout';
 /*
  * @Author Himanshu Maheshwari
  * @email animatorhimanshu.ksj@gmail.com
  */
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -38,46 +37,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatChipsModule,
-    MatTableModule,
-    MatDialogModule,
-    MatTabsModule,
-    MatPaginatorModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatGridListModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatMenuModule,
-    MatExpansionModule,
-    MatSnackBarModule,
-    MatAutocompleteModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatProgressBarModule,
-    MatInputModule,
-    MatSortModule,
-    MatSnackBarModule,
-    MatSlideToggleModule,
-    MatTooltipModule,
-    MatTreeModule,
-    MatBottomSheetModule,
-    FlexLayoutModule,
-  ],
-  declarations: [],
   exports: [
     CommonModule,
     LayoutModule,
@@ -114,6 +76,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     MatBottomSheetModule,
     MatSlideToggleModule,
     FlexLayoutModule,
+    OverlayModule
   ],
 })
 export class MaterialModules {}

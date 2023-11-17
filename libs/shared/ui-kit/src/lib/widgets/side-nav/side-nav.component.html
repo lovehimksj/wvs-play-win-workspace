@@ -37,8 +37,8 @@
       >
       <mat-expansion-panel
         hideToggle
-        (opened)="selectedRoot('masterManagement')"
-        [expanded]="isActiveRoot() === 'masterManagement'"
+        (opened)="selectedRoot('dashboard')"
+        [expanded]="isActiveRoot() === 'dashboard'"
         class="dark mat-elevation-z0"
       >
         <mat-expansion-panel-header
@@ -51,44 +51,44 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <a
-          [ngClass]="{ active: isActive('app/masterManagement/parking') }"
-          [routerLink]="['/', 'app', 'masterManagement', 'game']"
+          [ngClass]="{ active: isActive('/en/admin/dashboard/games') }"
+          [routerLink]="['/', 'en', 'admin', 'dashboard', 'games']"
           class="sub-manu-active primary-text fs-14 fw-500"
           mat-list-item
           >Games</a
         >
         <a
-          [ngClass]="{ active: isActive('app/parkingManagement/generateQR') }"
-          [routerLink]="['/', 'app', 'parkingManagement', 'QRCreation']"
+          [ngClass]="{ active: isActive('/en/admin/dashboard/councils') }"
+          [routerLink]="['/', 'en', 'admin', 'dashboard', 'councils']"
           class="primary-text fs-14 fw-500"
           mat-list-item
           >Councils</a
         >
 
         <a
-          [ngClass]="{ active: isActive('app/parkingManagement/manualExit') }"
-          [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
+          [ngClass]="{ active: isActive('/en/admin/dashboard/tournaments') }"
+          [routerLink]="['/', 'en', 'admin', 'dashboard', 'tournaments']"
           class="primary-text fs-14 fw-500"
           mat-list-item
           >Tournaments</a
         >
         <a
-          [ngClass]="{ active: isActive('app/parkingManagement/manualExit') }"
-          [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
+          [ngClass]="{ active: isActive('/en/admin/dashboard/matches') }"
+          [routerLink]="['/', 'en', 'admin', 'dashboard', 'matches']"
           class="primary-text fs-14 fw-500"
           mat-list-item
-          >Matchs</a
+          >Matches</a
         >
         <a
-          [ngClass]="{ active: isActive('app/parkingManagement/manualExit') }"
-          [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
+          [ngClass]="{ active: isActive('/en/admin/dashboard/teams') }"
+          [routerLink]="['/', 'en', 'admin', 'dashboard', 'teams']"
           class="primary-text fs-14 fw-500"
           mat-list-item
           >Teams</a
         >
-        <a
-          [ngClass]="{ active: isActive('app/parkingManagement/manualExit') }"
-          [routerLink]="['/', 'app', 'parkingManagement', 'manualParking']"
+        <a (click)="selectedMenu('en/admin/dashboard/players')"
+          [ngClass]="{ active: isActive('en/admin/dashboard/players') }"
+          [routerLink]="['/', 'en', 'admin', 'dashboard', 'players']"
           class="primary-text fs-14 fw-500"
           mat-list-item
           >Players</a

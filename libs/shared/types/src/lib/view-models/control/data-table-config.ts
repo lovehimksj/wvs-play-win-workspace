@@ -4,6 +4,7 @@
  */
 
 export class DataTableConfig {
+  dataTableTitle: string = '';
   isSelectable: boolean;
   isSort: boolean;
   isFilter: boolean;
@@ -15,4 +16,5 @@ export class DataTableConfig {
   pageSizeOptions: number[] = [];
   preSelectedItems: number[] = [];
   selectionColumn: string;
+  actionItem: any[] = [];
 }

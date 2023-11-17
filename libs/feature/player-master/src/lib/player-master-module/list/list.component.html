@@ -1,52 +1,32 @@
 <div class="header">
   <div class="flex-row no-mobile">
-    <button mat-button mat-icon-button>
-      <!-- <mat-icon>arrow_back_ios</mat-icon> -->
+    <button *ngIf="entity.isBackButtonEnabled" mat-button mat-icon-button>
       <mat-icon>arrow_back</mat-icon>
     </button>
-    <span class="fs-20 dark-text">Complaint List</span>
+    <span class="fs-20 dark-text">{{entity.pageTitle}}</span>
   </div>
   <div class="search-wrapper flex-row">
     <div class="search flex-row white">
       <mat-icon class="dark-text">search</mat-icon>
-      <input
-        class="fs-16 dark-text"
-        placeholder="Search by Complaint Reference Number"
-        (keyup)="applyFilter($event)"
-      />
-      <button mat-button matSuffix mat-icon-button aria-label="Clear">
+      <input class="fs-16 dark-text" [placeholder]="entity.searchInputLabel" (keyup)="applyFilter($event)" />
+      <button mat-button matSuffix mat-icon-button aria-label="Clear" [matTooltip]="entity.searchClearTooltipLabel" [matTooltipPosition]="'below'">
         <mat-icon>close</mat-icon>
       </button>
     </div>
   </div>
-  <!-- <button mat-button mat-raised-button class="primary white-text ts-1 text-uppercase no-mobile">Create New
-        Complaint</button> -->
-  <button
-    class="dark no-mobile"
-    mat-mini-fab
-    type="button"
-    matTooltip="Reset"
-    [matTooltipPosition]="'bottom'"
-  >
-    <mat-icon>add</mat-icon>
-  </button>
-  <button
-    *ngIf="false"
-    class="primary no-mobile"
-    mat-mini-fab
-    type="button"
-    matTooltip="Reset"
-    [matTooltipPosition]="'bottom'"
-  >
-    <mat-icon>replay</mat-icon>
-  </button>
+  <div class="flex-row">
+    <ng-container *ngFor="let item of entity.crudOption">
+      <button *ngIf="item.buttonTitle !== ''" mat-button mat-raised-button [class]="item.buttonClass">
+        <mat-icon ng>replay</mat-icon>
+        {{item.buttonTitle}}
+      </button>
+      <button *ngIf="item.buttonTitle === ''" [class]="item.buttonClass" mat-mini-fab type="button" [matTooltip]="item.matTooltip" [matTooltipPosition]="'below'">
+        <mat-icon>{{item.icon}}</mat-icon>
+      </button>
+    </ng-container>
+  </div>
+
 </div>
 
-<wvs-data-table
-  *ngIf="dataTableConfig"
-  [displayedColumnsConfig]="dataTableColumn"
-  [config]="dataTableConfig"
-  [filterKey]="filterValue"
-  [dataSource]="dataSource"
-  (clickedItem)="action($event)"
-></wvs-data-table>
+<wvs-data-table *ngIf="dataTableConfig" [displayedColumnsConfig]="dataTableColumn" [config]="dataTableConfig"
+  [filterKey]="filterValue" [dataSource]="dataSource" (clickedItem)="action($event)"></wvs-data-table>

@@ -8,18 +8,25 @@ import { SideNavControl } from '@wvs-play-win-workspace/shared/types';
 })
 export class SideNavComponent implements OnInit {
   @Input() entity: SideNavControl;
-
+  rootMenu = 'dashboard';
+  selectedMenuItem: string = '';
   constructor() {}
 
   ngOnInit(): void {}
 
   isActiveRoot() {
-    return '';
+    return this.rootMenu;
   }
 
-  isActive(appHelpDeskSuspendResume: string) {}
+  isActive(appHelpDeskSuspendResume: string) {
+    this.selectedMenuItem === appHelpDeskSuspendResume;
+  }
 
-  selectedMenu(appUserManagementUsers: string) {}
+  selectedMenu(appUserManagementUsers: string) {
+    this.selectedMenuItem = appUserManagementUsers
+  }
 
-  selectedRoot(userManagement: string) {}
+  selectedRoot(rootMenu: string) {
+    this.rootMenu = rootMenu;
+  }
 }

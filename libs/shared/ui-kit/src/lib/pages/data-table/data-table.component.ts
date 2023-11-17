@@ -31,7 +31,12 @@ export class DataTableComponent implements OnInit, AfterViewInit, OnChanges {
   selection: SelectionModel<any> = new SelectionModel<any>();
   pageEvent: PageEvent;
   sliceCount: number;
-
+  menuData = {
+    menuItems: [
+      {code: '1', name: 'first'},
+      {code: '2', name: 'second'}
+    ]
+  }; 
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges): void {

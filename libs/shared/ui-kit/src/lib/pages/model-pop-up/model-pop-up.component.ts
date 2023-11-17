@@ -5,6 +5,14 @@ export interface Tile {
   cols: number;
   rows: number;
   text: string;
+  dataType: string;
+  isHint: boolean;
+  isSuffix: boolean;
+  isAdditionButton: boolean;
+}
+export interface FormGroup {
+  title: string;
+  inputs: Array<Tile>;
 }
 @Component({
   selector: 'wvs-model-pop-up',
@@ -12,13 +20,25 @@ export interface Tile {
   styleUrls: ['./model-pop-up.component.scss'],
 })
 export class ModelPopUpComponent implements OnInit {
-  tiles: Tile[] = [
-    { text: 'One', cols: 1, rows: 1, type: 'text' },
-    { text: 'Two', cols: 1, rows: 1, type: 'radio' },
-    { text: 'Three', cols: 1, rows: 1, type: 'checkbox' },
-    { text: 'Four', cols: 1, rows: 1, type: 'dropdown' },
-    { text: 'five', cols: 1, rows: 1, type: 'date' },
-    { text: 'six', cols: 2, rows: 1, type: 'textarea' },
+  formList: FormGroup[] = [
+    {title: 'Form Type',
+    inputs: [
+      { text: 'One', cols: 1, rows: 1, type: 'text', dataType: 'text', isHint: false, isSuffix: false, isAdditionButton: false },
+      { text: 'One', cols: 1, rows: 1, type: 'text', dataType: 'email', isHint: false, isSuffix: false, isAdditionButton: false  },
+      { text: 'One', cols: 1, rows: 1, type: 'text', dataType: 'password', isHint: false, isSuffix: false, isAdditionButton: false  },
+      { text: 'One', cols: 1, rows: 1, type: 'text', dataType: 'tel', isHint: false, isSuffix: false, isAdditionButton: false  },
+      { text: 'One', cols: 1, rows: 1, type: 'text', dataType: 'number', isHint: false, isSuffix: false, isAdditionButton: false  },
+      { text: 'One', cols: 1, rows: 1, type: 'text', dataType: 'url', isHint: false, isSuffix: false, isAdditionButton: false },
+    ]},
+    {title: 'Form Type 2',
+    inputs: [
+      { text: 'One', cols: 1, rows: 1, type: 'text', dataType: 'text', isHint: false, isSuffix: false, isAdditionButton: false },
+      { text: 'One', cols: 1, rows: 1, type: 'text', dataType: 'email', isHint: false, isSuffix: false, isAdditionButton: false  },
+      { text: 'One', cols: 1, rows: 1, type: 'text', dataType: 'password', isHint: false, isSuffix: false, isAdditionButton: false  },
+      { text: 'One', cols: 1, rows: 1, type: 'text', dataType: 'tel', isHint: false, isSuffix: false, isAdditionButton: false  },
+      { text: 'One', cols: 1, rows: 1, type: 'text', dataType: 'number', isHint: false, isSuffix: false, isAdditionButton: false  },
+      { text: 'One', cols: 1, rows: 1, type: 'text', dataType: 'url', isHint: false, isSuffix: false, isAdditionButton: false },
+    ]}
   ];
   constructor(public dialogRef: MatDialogRef<ModelPopUpComponent>) {}
 

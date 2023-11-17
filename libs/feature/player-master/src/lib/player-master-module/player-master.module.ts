@@ -7,7 +7,7 @@ import { SharedUiKitModule } from '@wvs-play-win-workspace/shared/ui-kit';
 
 @NgModule({
   declarations: [ListComponent],
-  imports: [CommonModule, PlayerMasterRoutingModule, SharedUiKitModule],
+  imports: [CommonModule, SharedUiKitModule, PlayerMasterRoutingModule],
   exports: [ListComponent],
 })
 export class PlayerMasterModule {}
